@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="VOLT CREATINE — A creatina mais pura, rápida e potente para seu treino. Destrave mais repetições, mais explosão muscular e recuperação turbo.">
+    content="VOLT CREATINE — Guia Definitivo e Científico sobre os Benefícios da Creatina: Ganho de força, hipertrofia muscular, foco cerebral, longevidade e disposição celular para quem treina e para quem não treina.">
   <meta name="theme-color" content="#090A0C">
-  <title>VOLT CREATINE ⚡</title>
+  <title>VOLT CREATINE ⚡ Guia Científico: Benefícios para Treino, Mente e Longevidade</title>
 
   <!-- Google Fonts: Space Grotesk (Títulos com energia), Inter (Leitura rápida) e JetBrains Mono (Métricas gamificadas) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -358,42 +358,6 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-    }
-
-    .cart-btn {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.85rem;
-      height: 2.85rem;
-      border-radius: var(--radius-sm);
-      background: var(--bg-surface);
-      border: 1px solid var(--border-medium);
-      color: #fff;
-      transition: all var(--transition-fast);
-    }
-
-    .cart-btn:hover {
-      border-color: var(--accent-volt);
-      transform: translateY(-2px);
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: var(--accent-volt);
-      color: #070809;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 800;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     /* HERO SECTION */
@@ -955,6 +919,7 @@
 
     .styled-range {
       -webkit-appearance: none;
+      appearance: none;
       width: 100%;
       height: 8px;
       border-radius: 4px;
@@ -1434,8 +1399,9 @@
     }
 
     .plan-box-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 0.3rem;
+      line-height: 1.3;
     }
 
     .plan-box-sub {
@@ -1446,8 +1412,8 @@
     }
 
     .plan-price-wrap {
-      margin: 1.5rem 0;
-      padding-bottom: 1.5rem;
+      margin: 1.25rem 0;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -1461,7 +1427,7 @@
 
     .plan-price-wrap .price-val {
       font-family: var(--font-mono);
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 900;
       color: #fff;
       line-height: 1;
@@ -1475,25 +1441,40 @@
       display: block;
     }
 
+    .protocol-badge-dose {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-volt);
+      background: rgba(212, 255, 0, 0.1);
+      border: 1px solid var(--border-volt);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-top: 0.6rem;
+    }
+
     .plan-perks-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.88rem;
       color: var(--text-secondary);
     }
 
     .plan-perks-list li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
+      line-height: 1.45;
     }
 
     .plan-perks-list li svg {
       color: var(--accent-volt);
       flex-shrink: 0;
+      margin-top: 2px;
     }
 
     /* DEPOIMENTOS */
@@ -1693,158 +1674,7 @@
       color: var(--text-muted);
     }
 
-    /* DRAWER DO CARRINHO */
-    .cart-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-smooth);
-    }
 
-    .cart-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .cart-drawer-panel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      max-width: 440px;
-      height: 100%;
-      background: var(--bg-surface);
-      border-left: 1px solid var(--border-medium);
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      transform: translateX(100%);
-      transition: transform var(--transition-smooth);
-      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
-    }
-
-    .cart-backdrop.open .cart-drawer-panel {
-      transform: translateX(0);
-    }
-
-    .drawer-top-bar {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .drawer-top-bar h3 {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    .drawer-close {
-      color: var(--text-secondary);
-      font-size: 1.2rem;
-    }
-
-    .drawer-shipping-notice {
-      background: rgba(212, 255, 0, 0.08);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0.65rem 1.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent-volt);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .drawer-items-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .cart-item-row {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 0.9rem;
-    }
-
-    .cart-item-thumb {
-      background: #090A0C;
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .cart-item-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cart-item-info h4 {
-      font-size: 0.92rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .cart-item-info .type {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      display: block;
-    }
-
-    .cart-item-info .price {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--accent-volt);
-      margin-top: 0.35rem;
-      display: block;
-    }
-
-    .drawer-bottom-bar {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.5rem;
-      background: var(--bg-surface);
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .drawer-sum-line {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-
-    .drawer-sum-line.total {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 0.6rem;
-    }
 
     .toast-msg {
       position: fixed;
@@ -1929,10 +1759,9 @@
 
 <body>
 
-  <!-- BANNER SUPERIOR DE ENERGIA -->
+  <!-- BANNER SUPERIOR DE ENERGIA & CONHECIMENTO -->
   <div class="top-energy-banner">
-    ⚡ <strong>VOLT CREATINE:</strong> MICRONIZAÇÃO 200 MESH • ZERO RETENÇÃO SUBCUTÂNEA • DISSOLVE EM 5 SEGUNDOS • FRETE
-    GRÁTIS HOJE
+    ⚡ <strong>VOLT GUIA CIENTÍFICO:</strong> BENEFÍCIOS COMPROVADOS DA CREATINA • PERFORMANCE FÍSICA • FOCO MENTAL • LONGEVIDADE PARA TODOS
   </div>
 
   <!-- NAVBAR -->
@@ -1942,28 +1771,19 @@
         <a href="#" class="brand-logo">
           <span class="bolt-icon">⚡</span>
           VOLT<span class="brand-highlight">CREATINE</span>
-          <span class="brand-badge">200 MESH</span>
+          <span class="brand-badge">GUIA CIENTÍFICO</span>
         </a>
 
         <ul class="nav-links">
+          <li><a href="#beneficios">Superpoderes</a></li>
           <li><a href="#calculadora">Calculadora de Dose</a></li>
           <li><a href="#simulador">Simulador de Treino</a></li>
           <li><a href="#solubilidade">Dissolução 200 Mesh</a></li>
-          <li><a href="#beneficios">Superpoderes</a></li>
-          <li><a href="#mitos">Mitos da Academia</a></li>
-          <li><a href="#planos">Garanta Seu Pote</a></li>
+          <li><a href="#mitos">Mitos vs Fatos</a></li>
+          <li><a href="#protocolos">Protocolos de Uso</a></li>
         </ul>
 
         <div class="nav-actions">
-          <button class="cart-btn" id="openCartBtn" aria-label="Abrir Carrinho">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span class="cart-badge" id="cartCountBadge">1</span>
-          </button>
-
           <a href="#calculadora" class="btn btn-volt" style="padding: 0.65rem 1.2rem; font-size: 0.8rem;">
             Calcular Minha Dose ⚡
           </a>
@@ -1981,23 +1801,22 @@
           <div class="hero-content">
             <div class="pill-badge">
               <span class="dot"></span>
-              RECARGA INSTANTÂNEA DE FORÇA MUSCULAR
+              ENERGIA CELULAR PARA O CORPO E O CÉREBRO
             </div>
 
             <h1 class="hero-title">
-              Destrave Mais Carga.
-              <span class="highlight-volt">+3 Repetições Pesadas em Cada Série.</span>
+              Potência nos Treinos.
+              <span class="highlight-volt">Clareza Mental e Vitalidade no Dia a Dia.</span>
             </h1>
 
             <p class="hero-subtitle">
-              Sabe aquela última repetição no supino ou no agachamento que trava no meio do caminho? A <strong>VOLT
-                CREATINE</strong> recarrega a bateria de energia dos seus músculos (ATP) para você vencer a falha e
-              construir massa magra de verdade.
+              Muito além da musculação: a <strong>Creatina</strong> é a molécula de recarga rápida de energia (ATP) das suas células. 
+              Na academia, destrava força e massa magra. Fora dela, combate o cansaço mental, protege neurônios, acelera a cognição e preserva a saúde muscular de quem não pratica exercícios intensos.
             </p>
 
             <div class="hero-cta-bar">
-              <a href="#planos" class="btn btn-volt">
-                Ativar Meu Modo Besta
+              <a href="#calculadora" class="btn btn-volt">
+                Calcular Minha Dose Ideal ⚡
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
@@ -2009,16 +1828,16 @@
 
             <div class="hero-badges-row">
               <div class="hero-badge-item">
-                <span class="icon">✓</span>
-                <span><strong>99.9% Pura</strong> (Sem misturas baratas)</span>
+                <span class="icon">💪</span>
+                <span><strong>+ Força & Músculo</strong> (Treinos pesados)</span>
               </div>
               <div class="hero-badge-item">
-                <span class="icon">✓</span>
-                <span><strong>Zero Gosto Ruim</strong> (Dissolução total)</span>
+                <span class="icon">🧠</span>
+                <span><strong>Foco & Memória</strong> (Mesmo sem treinar)</span>
               </div>
               <div class="hero-badge-item">
-                <span class="icon">✓</span>
-                <span><strong>100% Vegana</strong> e Sem Glúten</span>
+                <span class="icon">🛡️</span>
+                <span><strong>Longevidade Celular</strong> (Proteção diária)</span>
               </div>
             </div>
           </div>
@@ -2167,8 +1986,8 @@
                 </div>
               </div>
 
-              <a href="#planos" class="btn btn-volt" style="width: 100%; padding: 0.85rem;">
-                Garantir Meu Pote com Frete Grátis
+              <a href="#protocolos" class="btn btn-volt" style="width: 100%; padding: 0.85rem;">
+                Ver Como Tomar no Meu Dia a Dia ⚡
               </a>
             </div>
           </div>
@@ -2296,23 +2115,22 @@
           <span class="tagline">CIÊNCIA SEM PALAVREADO DIFÍCIL</span>
           <h2>O que a Creatina Faz no Seu Corpo</h2>
           <p>
-            Não é mágica nem hormônio sintético. É o combustível natural que suas células mais amam durante esforço
-            máximo.
+            Não é mágica nem substância restrita a fisiculturistas. É um aminoácido que toda célula humana utiliza para produzir energia imediata — beneficiando desde o praticante de musculação até quem passa o dia trabalhando no computador ou buscando envelhecer com saúde.
           </p>
         </div>
 
         <div class="tabs-nav" role="tablist">
           <button class="tab-trigger-btn active" data-tab-id="tabPower" role="tab" aria-selected="true">
-            💥 Mais Carga nos Exercícios
+            💥 Força & Carga (Academia)
           </button>
           <button class="tab-trigger-btn" data-tab-id="tabVolume" role="tab" aria-selected="false">
-            💧 Volume Muscular Firme
-          </button>
-          <button class="tab-trigger-btn" data-tab-id="tabSpeed" role="tab" aria-selected="false">
-            ⏱️ Descanso Mais Rápido
+            💧 Volume & Hidratação Muscular
           </button>
           <button class="tab-trigger-btn" data-tab-id="tabFocus" role="tab" aria-selected="false">
-            🧠 Foco e Disposição Mental
+            🧠 Foco Mental & Cognição
+          </button>
+          <button class="tab-trigger-btn" data-tab-id="tabLongevity" role="tab" aria-selected="false">
+            🛡️ Longevidade & Sem Exercício
           </button>
         </div>
 
@@ -2320,20 +2138,19 @@
           <!-- Aba 1 -->
           <div class="benefit-pane active" id="tabPower">
             <div>
-              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Suba o peso das anilhas com segurança</h3>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Suba o peso dos exercícios com segurança</h3>
               <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
                 A creatina permite que suas fibras rápidas mantenham a contração em 100% por mais tempo. O aumento médio
-                de carga em supino e agachamento varia de <strong>8kg a 15kg</strong> após as primeiras semanas de uso
-                consistente.
+                de força e carga em movimentos compostos varia de <strong>8kg a 15kg</strong> após as primeiras semanas de saturação celular consistente.
               </p>
               <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Comprovado por
-                mais de 500 estudos de fisiologia esportiva.</span>
+                mais de 500 estudos independentes de fisiologia esportiva.</span>
             </div>
             <div class="benefit-highlight-badge">
               <div class="huge-num">+15%</div>
-              <div class="huge-text">Ganho de Carga Máxima</div>
+              <div class="huge-text">Ganho de Força e Carga</div>
               <p style="font-size: 0.8rem; color: var(--text-muted);">Mais tensão mecânica = Muito mais hipertrofia
-                muscular</p>
+                muscular real</p>
             </div>
           </div>
 
@@ -2342,54 +2159,48 @@
             <div>
               <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Músculo mais cheio, denso e desenhado</h3>
               <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                A creatina puxa água para <strong>DENTRO</strong> da célula muscular (hidratação intracelular). Isso
-                significa que seu músculo fica mais duro e volumoso, sem deixar você com barriga d'água ou pele grossa.
+                A creatina puxa água exclusivamente para <strong>DENTRO</strong> da célula muscular (hidratação intracelular). Isso
+                significa que seu músculo fica mais rígido e protegido contra lesões, sem causar barriga d'água ou inchaço sob a pele.
               </p>
               <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Zero retenção
-                subcutânea. O volume fica 100% no músculo.</span>
+                subcutânea. O volume e tônus ficam 100% no tecido muscular.</span>
             </div>
             <div class="benefit-highlight-badge">
               <div class="huge-num">100%</div>
               <div class="huge-text">Hidratação Celular Real</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Aspecto visual de músculo sempre com pump
-                pós-treino</p>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Aspecto visual de músculo sempre com tônus e vitalidade</p>
             </div>
           </div>
 
           <!-- Aba 3 -->
-          <div class="benefit-pane" id="tabSpeed">
-            <div>
-              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Recuperação express entre cada série</h3>
-              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                Em vez de ficar 3 minutos sentado no banco esperando a queimação passar, seu corpo restabelece a energia
-                em 60 a 90 segundos. Você faz um treino mais intenso na metade do tempo.
-              </p>
-              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Treinos mais
-                densos geram queima calórica superior.</span>
-            </div>
-            <div class="benefit-highlight-badge">
-              <div class="huge-num">-40s</div>
-              <div class="huge-text">Menor Tempo de Descanso</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Você mantém o mesmo ritmo do começo ao fim do
-                treino</p>
-            </div>
-          </div>
-
-          <!-- Aba 4 -->
           <div class="benefit-pane" id="tabFocus">
             <div>
-              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Cérebro afiado e menos cansaço mental</h3>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Cérebro afiado, raciocínio rápido e menos fadiga mental</h3>
               <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                O cérebro consome 20% da sua energia corporal. Atletas e pessoas que tomam creatina relatam menor fadiga
-                mental, raciocínio mais rápido em dias estressantes e proteção contra cansaço de noites mal dormidas.
+                O cérebro consome mais de 20% de toda a energia do corpo. Estudos demonstram que a creatina atravessa a barreira hematoencefálica, melhorando a memória de trabalho, reduzindo o impacto de noites mal dormidas e aliviando a exaustão mental de quem estuda ou trabalha sob pressão.
               </p>
-              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Benefício
-                duplo: corpo blindado na academia e mente rápida no trabalho.</span>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Efeito nootrópico comprovado: neurônios com recarga contínua de ATP.</span>
             </div>
             <div class="benefit-highlight-badge">
               <div class="huge-num">+20%</div>
               <div class="huge-text">Clareza & Foco Neural</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted);">Energia limpa para seus neurônios</p>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Energia limpa para sinapses mais ágeis e menos névoa mental</p>
+            </div>
+          </div>
+
+          <!-- Aba 4: Benefícios Para Quem Não Faz Exercícios -->
+          <div class="benefit-pane" id="tabLongevity">
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Para quem não treina: proteção muscular, idosos e saúde celular</h3>
+              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Mesmo sem pisar numa academia, o corpo perde massa muscular e densidade óssea naturalmente após os 30 anos (sarcopenia). A suplementação com creatina protege a musculatura postural, melhora a sensibilidade à insulina, auxilia na saúde dos ossos e fornece energia diária para tarefas comuns, subida de escadas e disposição geral.
+              </p>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Recomendado por médicos geriatras e nutricionistas clínicos no mundo todo.</span>
+            </div>
+            <div class="benefit-highlight-badge">
+              <div class="huge-num">360°</div>
+              <div class="huge-text">Proteção & Vitalidade</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Combate a perda muscular involuntária e preserva a autonomia</p>
             </div>
           </div>
         </div>
@@ -2493,14 +2304,14 @@
       </div>
     </section>
 
-    <!-- MITOS DA ACADEMIA DESMISTIFICADOS -->
+    <!-- MITOS E FATOS CIENTÍFICOS DESMISTIFICADOS -->
     <section id="mitos" class="section-padding">
       <div class="container">
         <div class="section-header center">
-          <span class="tagline">CHEGA DE MENTIRAS NA ACADEMIA</span>
+          <span class="tagline">CIÊNCIA CONTRA O SENSO COMUM</span>
           <h2>Mitos vs. Fatos da Vida Real</h2>
           <p style="margin: 0 auto;">
-            Aquilo que o seu amigo da academia falou sem ler nenhum estudo científico.
+            O que as pesquisas médicas sérias dizem sobre a creatina — para atletas e para não praticantes de exercícios.
           </p>
         </div>
 
@@ -2514,8 +2325,8 @@
             <div class="truth-inner-box">
               <strong>A VERDADE REAL:</strong>
               <p>
-                Mentira pura! Mais de 30 anos de testes clínicos com atletas olímpicos comprovam que a creatina é 100%
-                segura para qualquer pessoa com rins saudáveis. Beba sua água diária normalmente e treine feliz.
+                Mentira pura! Mais de 30 anos de testes clínicos e meta-análises comprovam que a creatina é 100%
+                segura para qualquer pessoa com rins saudáveis. Beba sua água diária normalmente e mantenha seu organismo hidratado.
               </p>
             </div>
           </div>
@@ -2529,8 +2340,8 @@
             <div class="truth-inner-box">
               <strong>A VERDADE REAL:</strong>
               <p>
-                Zero calorias! A creatina não vira gordura. O líquido que ela puxa vai exclusivamente para dentro do
-                músculo, deixando você mais definido e volumoso, sem criar inchaço na pele ou na barriga.
+                Zero calorias! A creatina não vira gordura. O líquido que ela atrai vai exclusivamente para dentro da célula
+                muscular, melhorando o tônus e a firmeza, sem criar inchaço na pele, papada ou retenção abdominal.
               </p>
             </div>
           </div>
@@ -2539,13 +2350,27 @@
           <div class="interactive-myth-card">
             <div>
               <span class="myth-top-badge">MITO #3</span>
-              <h3>"Preciso parar de tomar no domingo ou dia sem treino?"</h3>
+              <h3>"Preciso parar de tomar no final de semana ou dia de descanso?"</h3>
             </div>
             <div class="truth-inner-box">
               <strong>A VERDADE REAL:</strong>
               <p>
-                Não pare! A creatina funciona acumulando estoque no músculo dia após dia. Se você para no final de
-                semana, a bateria começa a esvaziar e você perde parte da força na segunda-feira.
+                Não pare! A creatina funciona acumulando estoque nas células dia após dia. Se você interrompe aos finais de
+                semana, o nível celular diminui e você perde a constância dos benefícios cognitivos e físicos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mito 4 -->
+          <div class="interactive-myth-card">
+            <div>
+              <span class="myth-top-badge">MITO #4</span>
+              <h3>"Quem não faz musculação não pode ou não deve tomar creatina?"</h3>
+            </div>
+            <div class="truth-inner-box">
+              <strong>A VERDADE REAL:</strong>
+              <p>
+                Mito total! Estudos recentes mostram que pessoas sedentárias, idosos e estudantes obtêm ganhos expressivos em velocidade de raciocínio, memória, redução de fadiga crônica e prevenção da perda de massa muscular que ocorre naturalmente com o envelhecimento.
               </p>
             </div>
           </div>
@@ -2553,174 +2378,176 @@
       </div>
     </section>
 
-    <!-- VITRINE DE KITS COM SELETOR DE PREÇO -->
-    <section id="planos" class="section-padding">
+    <!-- PROTOCOLOS CIENTÍFICOS DE USO (INTERATIVO) -->
+    <section id="protocolos" class="section-padding">
       <div class="container">
         <div class="section-header center">
-          <span class="tagline">ESCOLHA SEU COMBO DE FORÇA</span>
-          <h2>Abasteça Seus Treinos Hoje</h2>
+          <span class="tagline">COMO TOMAR COM EFICÁCIA MÁXIMA</span>
+          <h2>Guia Prático de Protocolos</h2>
           <p style="margin: 0 auto;">
-            Embalagem especial com barreira de umidade e scoop dosador de precisão incluso em todos os kits.
+            Escolha seu perfil abaixo para visualizar o cronograma exato de ingestão, horário ideal e efeitos esperados.
           </p>
         </div>
 
-        <!-- Seletor Compra Única vs Assinatura -->
+        <!-- Seletor de Perfil Interativo -->
         <div class="pricing-pill-switch">
-          <div class="pill-container" role="radiogroup">
+          <div class="pill-container" role="tablist">
             <button type="button" class="pill-mode-btn active" id="btnSingleMode">
-              Compra Única
+              💪 Praticante de Atividade Física
             </button>
             <button type="button" class="pill-mode-btn" id="btnSubMode">
-              Assinatura Automática
+              🧠 Sedentário, Trabalho Mental ou Idoso
             </button>
           </div>
-          <span class="save-tag">-15% DE DESCONTO + FRETE GRÁTIS</span>
+          <span class="save-tag">100% BASEADO EM EVIDÊNCIAS</span>
         </div>
 
         <div class="plans-cards-grid">
-          <!-- Kit 1 -->
+          <!-- Protocolo 1 -->
           <div class="plan-box">
             <div>
-              <h3 class="plan-box-title">1 Pote (300g)</h3>
-              <span class="plan-box-sub">Ideal para o Primeiro Ciclo</span>
-              <p style="font-size: 0.82rem; margin-top: 0.5rem;">Perfeito para testar a dissolução e ver suas cargas
-                subirem em 30 dias.</p>
+              <h3 class="plan-box-title" id="protoTitle1">Dose Diária de Manutenção</h3>
+              <span class="plan-box-sub" id="protoSub1">Simples, Constante e Seguro</span>
+              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc1">
+                A estratégia mais utilizada e respaldada por nutricionistas esportivos do mundo todo.
+              </p>
             </div>
 
             <div class="plan-price-wrap">
-              <span class="currency">R$</span>
-              <span class="price-val" data-single="97" data-sub="82">97</span>
-              <span class="plan-daily-cost" id="dailyCost1">Apenas R$ 0,97 por dia de treino</span>
+              <span class="price-val" id="protoVal1">3g a 5g</span>
+              <span class="currency" style="font-size: 1rem; color: var(--accent-volt); font-weight: 700;">/ dia</span>
+              <span class="plan-daily-cost" id="dailyCost1">Saturação completa em 21 a 28 dias</span>
             </div>
 
-            <ul class="plan-perks-list">
+            <ul class="plan-perks-list" id="protoList1">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                300g de Creatina Pura 200 Mesh
+                <span>Tome 1 scoop raso todos os dias no mesmo horário</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Scoop dosador incluso no pote
+                <span>Ideal após o treino ou junto com almoço/carboidrato</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Dura de 60 a 100 doses
+                <span>Absorção suave sem nenhum desconforto gástrico</span>
               </li>
             </ul>
 
-            <button class="btn btn-ghost add-to-cart-trigger" data-pack-title="1 Pote VOLT (300g)" data-base-price="97">
-              Adicionar ao Carrinho
-            </button>
+            <a href="#calculadora" class="btn btn-ghost" style="text-align: center;">
+              Ajustar Para Meu Peso ⚡
+            </a>
           </div>
 
-          <!-- Kit 2 (Campeão de Vendas) -->
+          <!-- Protocolo 2 (Em Destaque) -->
           <div class="plan-box popular">
-            <div class="popular-floating-tag">⚡ O MAIS VENDIDO // MELHOR PREÇO</div>
+            <div class="popular-floating-tag">⚡ RECOMENDAÇÃO CIENTÍFICA OURO</div>
             <div>
-              <h3 class="plan-box-title">Kit 2 Potes (600g)</h3>
-              <span class="plan-box-sub">Ciclo Completo de 6 Meses</span>
-              <p style="font-size: 0.82rem; margin-top: 0.5rem;">O combo favorito de quem treina pesado e quer manter o
-                músculo sempre cheio.</p>
+              <h3 class="plan-box-title" id="protoTitle2">Protocolo Personalizado por Peso</h3>
+              <span class="plan-box-sub" id="protoSub2">Fórmula 0.07g por kg Corporal</span>
+              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc2">
+                A dosagem precisa e individualizada para quem quer o rendimento biológico ideal.
+              </p>
             </div>
 
             <div class="plan-price-wrap">
-              <span class="currency">R$</span>
-              <span class="price-val" data-single="167" data-sub="141">167</span>
-              <span class="plan-daily-cost" id="dailyCost2">Apenas R$ 0,83 por dia de treino</span>
+              <span class="price-val" id="protoVal2">0.07g</span>
+              <span class="currency" style="font-size: 1rem; color: var(--accent-volt); font-weight: 700;">/ kg</span>
+              <span class="plan-daily-cost" id="dailyCost2">Ex: Pessoa de 75kg toma ~5.3g diárias</span>
             </div>
 
-            <ul class="plan-perks-list">
+            <ul class="plan-perks-list" id="protoList2">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                600g de Creatina Micronizada
+                <span>Garante saturação celular máxima para o seu biotipo</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <strong>Frete Grátis</strong> para todo o Brasil
+                <span>Conserva a massa magra mesmo em períodos de dieta restritiva</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                Economia imediata de R$ 27,00
+                <span>Melhora sinérgica de rendimento com consumo de 35ml de água/kg</span>
               </li>
             </ul>
 
-            <button class="btn btn-volt add-to-cart-trigger" data-pack-title="Kit 2 Potes VOLT (600g)"
-              data-base-price="167">
-              Garantir Kit 2 Potes ⚡
-            </button>
+            <a href="#calculadora" class="btn btn-volt" style="text-align: center;">
+              Calcular Minha Dose Agora ⚡
+            </a>
           </div>
 
-          <!-- Kit 3 -->
+          <!-- Protocolo 3 -->
           <div class="plan-box">
             <div>
-              <h3 class="plan-box-title">Kit Anual (900g)</h3>
-              <span class="plan-box-sub">Abastecimento para o Ano Todo</span>
-              <p style="font-size: 0.82rem; margin-top: 0.5rem;">3 potes lacrados individuais para nunca faltar creatina
-                na sua rotina.</p>
+              <h3 class="plan-box-title" id="protoTitle3">Protocolo de Carga Rápida (Opcional)</h3>
+              <span class="plan-box-sub" id="protoSub3">Saturação Express em 7 Dias</span>
+              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc3">
+                Indicado para quem tem uma competição ou evento próximo e precisa encher o músculo rápido.
+              </p>
             </div>
 
             <div class="plan-price-wrap">
-              <span class="currency">R$</span>
-              <span class="price-val" data-single="227" data-sub="192">227</span>
-              <span class="plan-daily-cost" id="dailyCost3">Apenas R$ 0,75 por dia de treino</span>
+              <span class="price-val" id="protoVal3">20g</span>
+              <span class="currency" style="font-size: 1rem; color: var(--accent-volt); font-weight: 700;">/ dia (7 dias)</span>
+              <span class="plan-daily-cost" id="dailyCost3">Após o 7º dia, reduz-se para 3g a 5g diárias</span>
             </div>
 
-            <ul class="plan-perks-list">
+            <ul class="plan-perks-list" id="protoList3">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                900g em 3 frascos lacrados
+                <span>Dividir em 4 tomadas de 5g ao longo do dia com as refeições</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <strong>Frete Expresso Prioritário</strong>
+                <span>Aumenta os estoques de fosfocreatina muscular na primeira semana</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                O menor valor por grama do mercado
+                <span>Não obrigatório — o protocolo constante atinge o mesmo pico</span>
               </li>
             </ul>
 
-            <button class="btn btn-ghost add-to-cart-trigger" data-pack-title="Kit Anual VOLT (900g)"
-              data-base-price="227">
-              Adicionar ao Carrinho
-            </button>
+            <a href="#mitos" class="btn btn-ghost" style="text-align: center;">
+              Tirar Dúvidas sobre Mitos 📚
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DEPOIMENTOS COM FILTRO RÁPIDO -->
+    <!-- EXPERIÊNCIAS REAIS & DEPOIMENTOS -->
     <section class="section-padding">
       <div class="container">
         <div class="section-header">
-          <span class="tagline">QUEM JÁ TOMA E APROVA</span>
-          <h2>Atletas e Praticantes Reais</h2>
-          <p>Veja o feedback de quem colocou a VOLT CREATINE na rotina de treino.</p>
+          <span class="tagline">EXPERIÊNCIA DE QUEM UTILIZA</span>
+          <h2>Atletas, Profissionais e Praticantes Reais</h2>
+          <p>Veja o relato de quem introduziu a creatina para treinar mais pesado ou para aumentar a energia e foco no dia a dia.</p>
         </div>
 
         <div class="filter-pills-row">
-          <button class="filter-chip-btn active" data-filter="all">Todos os Treinos (2.480+)</button>
-          <button class="filter-chip-btn" data-filter="musculacao">Musculação Pesada</button>
-          <button class="filter-chip-btn" data-filter="crossfit">Crossfit</button>
-          <button class="filter-chip-btn" data-filter="corrida">Corrida & Luta</button>
+          <button class="filter-chip-btn active" data-filter="all">Todos os Relatos (4)</button>
+          <button class="filter-chip-btn" data-filter="musculacao">Musculação & Carga</button>
+          <button class="filter-chip-btn" data-filter="crossfit">Crossfit & Esportes</button>
+          <button class="filter-chip-btn" data-filter="mental">Trabalho Mental & Estudos</button>
+          <button class="filter-chip-btn" data-filter="saude">Longevidade & Saúde</button>
         </div>
 
         <div class="reviews-stream-grid">
@@ -2729,17 +2556,14 @@
             <div class="review-user-row">
               <div>
                 <div class="review-user-name">Lucas Ferraz</div>
-                <span class="review-sport-tag">Treina Musculação há 5 anos</span>
+                <span class="review-sport-tag">Musculação Pesada (5 anos)</span>
               </div>
               <div class="stars-line">★★★★★</div>
             </div>
             <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-              "Eu já comprei creatina de várias marcas famosas e sempre ficava aquele pozinho arenoso no fundo da
-              garrafa. A VOLT dissolveu na hora na água gelada, sem gosto nenhum. Minha carga de supino subiu de 38kg de
-              cada lado para 44kg em 3 semanas!"
+              "Depois que comecei a tomar creatina todo santo dia com disciplina, minha carga de supino subiu de 38kg de cada lado para 44kg em 3 semanas! A diferença na última repetição é gritante, a falha simplesmente demora muito mais para chegar."
             </p>
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
-              Verificada • Kit 2 Potes</span>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Uso Contínuo • Protocolo Diário 5g</span>
           </div>
 
           <!-- Depoimento 2 -->
@@ -2752,28 +2576,39 @@
               <div class="stars-line">★★★★★</div>
             </div>
             <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-              "Nos WODs com repetições infinitas de barra e agachamento com peso, eu sempre morria na metade. Com a VOLT
-              meu fôlego muscular dura até o final. Não sinto nenhum enjoo no estômago, super leve."
+              "Nos WODs com repetições intensas de barra e agachamento com peso, eu sempre sentia as pernas queimando na metade. A creatina me deu fôlego e recuperação muscular rápida entre cada round. Zero enjoo gástrico."
             </p>
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
-              Verificada • Assinante</span>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Uso Contínuo • Protocolo Esportivo</span>
           </div>
 
-          <!-- Depoimento 3 -->
-          <div class="athlete-review-card" data-cat="corrida">
+          <!-- Depoimento 3: Foco Mental (Não treina musculação) -->
+          <div class="athlete-review-card" data-cat="mental">
             <div class="review-user-row">
               <div>
-                <div class="review-user-name">Gabriel Santos</div>
-                <span class="review-sport-tag">Jiu-jitsu & Corrida de Rua</span>
+                <div class="review-user-name">Camila Nogueira</div>
+                <span class="review-sport-tag">Desenvolvedora de Software (Home Office)</span>
               </div>
               <div class="stars-line">★★★★★</div>
             </div>
             <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-              "Tinha medo de ficar pesado pra lutar, mas o peso que ganhei foi só músculo rígido. Minha pegada no kimono
-              ficou muito mais forte e não tive mais cãibras nas pernas nos treinos de domingo."
+              "Eu não pratico musculação, apenas caminhadas leves. Meu médico nutrólogo recomendou 3g de creatina para a fadiga mental pós-almoço. Em duas semanas a 'névoa mental' desapareceu e meu foco em raciocínio lógico aumentou muito!"
             </p>
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
-              Verificada • Kit Anual</span>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan);">✓ Uso Cognitivo • Foco Mental Diário</span>
+          </div>
+
+          <!-- Depoimento 4: Saúde e Longevidade -->
+          <div class="athlete-review-card" data-cat="saude">
+            <div class="review-user-row">
+              <div>
+                <div class="review-user-name">Carlos Eduardo (58 anos)</div>
+                <span class="review-sport-tag">Foco em Saúde & Longevidade</span>
+              </div>
+              <div class="stars-line">★★★★★</div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+              "Comecei a tomar por orientação médica para evitar a perda de massa muscular da idade. Sinto mais firmeza nas pernas ao subir escadas e muito mais disposição física no dia a dia. Creatina é saúde pura."
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Uso Clínico • Preservação Muscular</span>
           </div>
         </div>
       </div>
@@ -2857,97 +2692,57 @@
             VOLT<span class="brand-highlight">CREATINE</span>
           </div>
           <p style="font-size: 0.85rem; margin-bottom: 1rem;">
-            A creatina pura e micronizada feita para quem não aceita desculpas na hora de puxar ferro.
+            Guia educacional e científico completo sobre o uso seguro, eficaz e respaldado da Creatina Monohidratada.
           </p>
           <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">
-            ● LOTE 2026 COM LAUDO DE PUREZA LIBERADO
+            ● BASEADO EM MAIS DE 500 ESTUDOS CIENTÍFICOS PUBLICADOS
           </span>
         </div>
 
         <div>
-          <h4>Links Rápidos</h4>
+          <h4>Navegação do Guia</h4>
           <ul class="footer-links-list">
+            <li><a href="#beneficios">Superpoderes & Benefícios</a></li>
             <li><a href="#calculadora">Calculadora de Dose</a></li>
-            <li><a href="#simulador">Simulador de Série</a></li>
-            <li><a href="#solubilidade">Teste de Dissolução</a></li>
-            <li><a href="#beneficios">Benefícios no Músculo</a></li>
-            <li><a href="#planos">Tabela de Preços</a></li>
+            <li><a href="#simulador">Simulador de Força</a></li>
+            <li><a href="#solubilidade">Teste de Dissolução 200 Mesh</a></li>
+            <li><a href="#mitos">Mitos vs Fatos</a></li>
+            <li><a href="#protocolos">Protocolos de Uso</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Qualidade & Garantia</h4>
+          <h4>Evidências & Saúde</h4>
           <ul class="footer-links-list">
-            <li><a href="#">Garantia de 30 Dias</a></li>
-            <li><a href="#">Laudo Laboratorial HPLC</a></li>
-            <li><a href="#">Certificado Vegano</a></li>
-            <li><a href="#">Rastrear Meu Pedido</a></li>
+            <li><a href="#beneficios">Benefícios na Musculação</a></li>
+            <li><a href="#beneficios">Foco & Cognição Mental</a></li>
+            <li><a href="#beneficios">Longevidade & Sarcopenia</a></li>
+            <li><a href="#mitos">Segurança Renal e Mitos</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Atendimento</h4>
+          <h4>Diretrizes</h4>
           <ul class="footer-links-list">
-            <li><a href="#">WhatsApp Direto do Time</a></li>
-            <li><a href="#">Dúvidas com Nutricionista</a></li>
-            <li><a href="#">Envios & Prazos</a></li>
-            <li><a href="#">Políticas de Troca</a></li>
+            <li><a href="#protocolos">Como Tomar Corretamente</a></li>
+            <li><a href="#calculadora">Calculadora por Peso</a></li>
+            <li><a href="#protocolos">Protocolo Sedentário e Idosos</a></li>
+            <li><a href="#mitos">Perguntas Frequentes</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom-row">
-        <div>© 2026 VOLT CREATINE LABS. TODOS OS DIREITOS RESERVADOS.</div>
-        <div>PRODUTO DISPENSADO DE REGISTRO CONFORME RDC 240/2018 (ANVISA).</div>
+        <div>© 2026 VOLT CREATINE SCIENCE. CONTEÚDO EXCLUSIVAMENTE INFORMATIVO E EDUCACIONAL.</div>
+        <div>CONSULTE SEMPRE SEU MÉDICO OU NUTRICIONISTA ANTES DE INICIAR QUALQUER SUPLEMENTAÇÃO.</div>
       </div>
     </div>
   </footer>
 
-  <!-- DRAWER LATERAL DO CARRINHO (CHECKOUT SIMULADO) -->
-  <div class="cart-backdrop" id="cartBackdrop" aria-hidden="true">
-    <div class="cart-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
-      <div class="drawer-top-bar">
-        <h3 id="cartDrawerTitle">SEU PEDIDO ⚡ VOLT</h3>
-        <button class="drawer-close" id="closeCartBtn" aria-label="Fechar Carrinho">✕</button>
-      </div>
-
-      <div class="drawer-shipping-notice">
-        <span>🚚 FRETE GRÁTIS ATIVADO PARA O SEU ENDEREÇO!</span>
-      </div>
-
-      <div class="drawer-items-content" id="cartListContent">
-        <!-- Itens inseridos dinamicamente pelo JS -->
-      </div>
-
-      <div class="drawer-bottom-bar">
-        <div class="drawer-sum-line">
-          <span>Subtotal</span>
-          <span id="cartSubtotalText">R$ 167,00</span>
-        </div>
-        <div class="drawer-sum-line">
-          <span>Frete Expresso</span>
-          <span style="color: var(--accent-volt); font-weight: 700;">GRÁTIS</span>
-        </div>
-        <div class="drawer-sum-line total">
-          <span>Total</span>
-          <span id="cartTotalText" style="color: var(--accent-volt);">R$ 167,00</span>
-        </div>
-
-        <button class="btn btn-volt" id="finishCheckoutBtn" style="width: 100%; padding: 1.1rem; font-size: 0.95rem;">
-          Finalizar Pedido com Desconto ⚡
-        </button>
-
-        <span style="font-family: var(--font-mono); font-size: 0.68rem; text-align: center; color: var(--text-muted);">
-          🔒 COMPRA 100% SEGURA • GARANTIA TOTAL DE RESULTADOS EM 30 DIAS
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOAST DE FEEDBACK -->
+  <!-- TOAST DE FEEDBACK INTERATIVO -->
   <div class="toast-msg" id="toastBox">
     <span>⚡</span>
-    <span id="toastText">Item adicionado com sucesso!</span>
+    <span id="toastText">Informação copiada com sucesso!</span>
   </div>
 
   <!-- ====================================================================
@@ -3158,47 +2953,174 @@
         });
       };
 
-      // 6. SELETOR DE PREÇOS (COMPRA ÚNICA VS ASSINATURA)
-      const initPricing = () => {
-        const btnSingle = document.getElementById('btnSingleMode');
-        const btnSub = document.getElementById('btnSubMode');
-        const priceEls = document.querySelectorAll('.price-val');
-        const dailyCost1 = document.getElementById('dailyCost1');
-        const dailyCost2 = document.getElementById('dailyCost2');
-        const dailyCost3 = document.getElementById('dailyCost3');
+      // 6. SELETOR INTERATIVO DE PROTOCOLOS (TREINO VS MENTE/LONGEVIDADE)
+      const initProtocols = () => {
+        const btnAthlete = document.getElementById('btnSingleMode');
+        const btnMind = document.getElementById('btnSubMode');
+        
+        const title1 = document.getElementById('protoTitle1');
+        const sub1 = document.getElementById('protoSub1');
+        const desc1 = document.getElementById('protoDesc1');
+        const val1 = document.getElementById('protoVal1');
+        const cost1 = document.getElementById('dailyCost1');
+        const list1 = document.getElementById('protoList1');
 
-        const updatePrices = (isSub) => {
-          priceEls.forEach(el => {
-            el.textContent = isSub ? el.getAttribute('data-sub') : el.getAttribute('data-single');
-          });
+        const title2 = document.getElementById('protoTitle2');
+        const sub2 = document.getElementById('protoSub2');
+        const desc2 = document.getElementById('protoDesc2');
+        const val2 = document.getElementById('protoVal2');
+        const cost2 = document.getElementById('dailyCost2');
+        const list2 = document.getElementById('protoList2');
 
-          if (isSub) {
-            if (dailyCost1) dailyCost1.textContent = 'Apenas R$ 0,82 por dia (-15% OFF)';
-            if (dailyCost2) dailyCost2.textContent = 'Apenas R$ 0,70 por dia (-15% OFF)';
-            if (dailyCost3) dailyCost3.textContent = 'Apenas R$ 0,64 por dia (-15% OFF)';
-          } else {
-            if (dailyCost1) dailyCost1.textContent = 'Apenas R$ 0,97 por dia de treino';
-            if (dailyCost2) dailyCost2.textContent = 'Apenas R$ 0,83 por dia de treino';
-            if (dailyCost3) dailyCost3.textContent = 'Apenas R$ 0,75 por dia de treino';
-          }
+        const title3 = document.getElementById('protoTitle3');
+        const sub3 = document.getElementById('protoSub3');
+        const desc3 = document.getElementById('protoDesc3');
+        const val3 = document.getElementById('protoVal3');
+        const cost3 = document.getElementById('dailyCost3');
+        const list3 = document.getElementById('protoList3');
+
+        const setAthleteProtocols = () => {
+          if (title1) title1.textContent = 'Dose Diária de Manutenção';
+          if (sub1) sub1.textContent = 'Simples, Constante e Seguro';
+          if (desc1) desc1.textContent = 'A estratégia padrão mais respaldada por nutricionistas esportivos do mundo todo.';
+          if (val1) val1.textContent = '3g a 5g';
+          if (cost1) cost1.textContent = 'Saturação completa em 21 a 28 dias';
+          if (list1) list1.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Tome 1 scoop raso todos os dias no mesmo horário</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Ideal após o treino ou junto com almoço/carboidrato</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Absorção suave sem nenhum desconforto gástrico</span>
+            </li>
+          `;
+
+          if (title2) title2.textContent = 'Protocolo Personalizado por Peso';
+          if (sub2) sub2.textContent = 'Fórmula 0.07g por kg Corporal';
+          if (desc2) desc2.textContent = 'A dosagem individualizada para quem quer rendimento biológico ideal.';
+          if (val2) val2.textContent = '0.07g';
+          if (cost2) cost2.textContent = 'Ex: Pessoa de 75kg toma ~5.3g diárias';
+          if (list2) list2.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Garante saturação celular máxima para o seu biotipo</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Conserva a massa magra mesmo em períodos de déficit calórico</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Melhora sinérgica com consumo de 35ml de água/kg</span>
+            </li>
+          `;
+
+          if (title3) title3.textContent = 'Protocolo de Carga Rápida (Opcional)';
+          if (sub3) sub3.textContent = 'Saturação Express em 7 Dias';
+          if (desc3) desc3.textContent = 'Indicado para quem tem competição ou evento próximo e precisa encher o músculo rápido.';
+          if (val3) val3.textContent = '20g';
+          if (cost3) cost3.textContent = 'Após o 7º dia, reduz-se para 3g a 5g diárias';
+          if (list3) list3.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dividir em 4 tomadas de 5g ao longo do dia com as refeições</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Aumenta estoques de fosfocreatina muscular na 1ª semana</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Opcional — o protocolo diário atinge o mesmo pico final</span>
+            </li>
+          `;
         };
 
-        if (btnSingle && btnSub) {
-          btnSingle.addEventListener('click', () => {
-            btnSingle.classList.add('active');
-            btnSub.classList.remove('active');
-            updatePrices(false);
+        const setMindAndLongevityProtocols = () => {
+          if (title1) title1.textContent = 'Dose Cognitiva & Foco Mental';
+          if (sub1) sub1.textContent = 'Trabalho Intelectual e Estudos';
+          if (desc1) desc1.textContent = 'Dose constante matinal para abastecer neurônios e combater o cansaço diário.';
+          if (val1) val1.textContent = '3g a 5g';
+          if (cost1) cost1.textContent = 'Melhora da clareza mental e memória em 14 a 21 dias';
+          if (list1) list1.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Ingerir pela manhã com café da manhã ou suco natural</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Auxilia na preservação de ATP cerebral em dias de privação de sono</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Reduz comprovadamente a sensação de 'nevoeiro mental' à tarde</span>
+            </li>
+          `;
+
+          if (title2) title2.textContent = 'Protocolo Longevidade & Sarcopenia';
+          if (sub2) sub2.textContent = 'Idosos & Prevenção Antienvelhecimento';
+          if (desc2) desc2.textContent = 'Proteção contra perda involuntária de massa magra e suporte à densidade óssea.';
+          if (val2) val2.textContent = '5g';
+          if (cost2) cost2.textContent = 'Uso contínuo e diário recomendado por geriatras';
+          if (list2) list2.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Preserva a autonomia motora e força para tarefas do dia a dia</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Melhora a captação de glicose e sensibilidade à insulina</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Zero necessidade de parar no final de semana</span>
+            </li>
+          `;
+
+          if (title3) title3.textContent = 'Protocolo Vegetariano / Vegano';
+          if (sub3) sub3.textContent = 'Reposição Nutricional Essencial';
+          if (desc3) desc3.textContent = 'Como a creatina alimentar vem de carnes, quem não consome carne tem os maiores saltos de benefício.';
+          if (val3) val3.textContent = '5g';
+          if (cost3) cost3.textContent = 'Normalização do estoque celular em 3 semanas';
+          if (list3) list3.innerHTML = `
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Nossa fórmula monohidratada é 100% sintetizada e vegana</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Aumento expressivo na velocidade de memória e reflexos</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Tome misturado em água, suco ou chá gelado</span>
+            </li>
+          `;
+        };
+
+        if (btnAthlete && btnMind) {
+          btnAthlete.addEventListener('click', () => {
+            btnAthlete.classList.add('active');
+            btnMind.classList.remove('active');
+            setAthleteProtocols();
+            window.triggerToast('⚡ Protocolos para Treino & Força Ativados!');
           });
 
-          btnSub.addEventListener('click', () => {
-            btnSub.classList.add('active');
-            btnSingle.classList.remove('active');
-            updatePrices(true);
+          btnMind.addEventListener('click', () => {
+            btnMind.classList.add('active');
+            btnAthlete.classList.remove('active');
+            setMindAndLongevityProtocols();
+            window.triggerToast('🧠 Protocolos para Foco Mental, Sedentários e Longevidade Ativados!');
           });
         }
       };
 
-      // 7. FILTRO DE DEPOIMENTOS
+      // 7. FILTRO DE DEPOIMENTOS & CASOS DE USO
       const initReviewsFilter = () => {
         const filterBtns = document.querySelectorAll('.filter-chip-btn');
         const cards = document.querySelectorAll('.athlete-review-card');
@@ -3240,11 +3162,7 @@
         });
       };
 
-      // 9. CARRINHO INTERATIVO E TOAST FEEDBACK
-      let cart = [
-        { title: 'Kit 2 Potes VOLT (600g)', price: 167.00, qty: 1 }
-      ];
-
+      // 9. TOAST FEEDBACK INTERATIVO
       const toastBox = document.getElementById('toastBox');
       const toastText = document.getElementById('toastText');
 
@@ -3255,147 +3173,15 @@
         setTimeout(() => toastBox.classList.remove('show'), 3000);
       };
 
-      const initCart = () => {
-        const openCartBtn = document.getElementById('openCartBtn');
-        const closeCartBtn = document.getElementById('closeCartBtn');
-        const cartBackdrop = document.getElementById('cartBackdrop');
-        const cartListContent = document.getElementById('cartListContent');
-        const cartCountBadge = document.getElementById('cartCountBadge');
-        const subtotalText = document.getElementById('cartSubtotalText');
-        const totalText = document.getElementById('cartTotalText');
-        const checkoutBtn = document.getElementById('finishCheckoutBtn');
-
-        const renderCart = () => {
-          cartListContent.innerHTML = '';
-
-          if (cart.length === 0) {
-            cartListContent.innerHTML = `
-              <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-family: var(--font-mono);">
-                <p>Seu carrinho está vazio.</p>
-                <a href="#planos" class="btn btn-ghost" style="margin-top: 1rem; font-size: 0.8rem;">Ver Kits Disponíveis</a>
-              </div>
-            `;
-            cartCountBadge.textContent = '0';
-            subtotalText.textContent = 'R$ 0,00';
-            totalText.textContent = 'R$ 0,00';
-            return;
-          }
-
-          let total = 0;
-          let count = 0;
-
-          cart.forEach((item, index) => {
-            total += item.price * item.qty;
-            count += item.qty;
-
-            const row = document.createElement('div');
-            row.className = 'cart-item-row';
-            row.innerHTML = `
-              <div class="cart-item-thumb">
-                <img src="Gemini_Generated_Image_garwtfgarwtfgarw.jpg" alt="${item.title}">
-              </div>
-              <div class="cart-item-info">
-                <h4>${item.title}</h4>
-                <span class="type">Grau 200 Mesh • Pureza 99.9%</span>
-                <span class="price">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
-                <div style="display: flex; gap: 0.5rem; margin-top: 0.4rem; align-items: center; font-family: var(--font-mono); font-size: 0.8rem;">
-                  <button class="dec-qty" data-index="${index}" style="padding: 0 0.4rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 3px;">-</button>
-                  <span>${item.qty}</span>
-                  <button class="inc-qty" data-index="${index}" style="padding: 0 0.4rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 3px;">+</button>
-                </div>
-              </div>
-            `;
-            cartListContent.appendChild(row);
-          });
-
-          cartCountBadge.textContent = count;
-          subtotalText.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-          totalText.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-
-          cartListContent.querySelectorAll('.inc-qty').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const idx = btn.getAttribute('data-index');
-              cart[idx].qty += 1;
-              renderCart();
-            });
-          });
-
-          cartListContent.querySelectorAll('.dec-qty').forEach(btn => {
-            btn.addEventListener('click', () => {
-              const idx = btn.getAttribute('data-index');
-              cart[idx].qty -= 1;
-              if (cart[idx].qty <= 0) cart.splice(idx, 1);
-              renderCart();
-            });
-          });
-        };
-
-        const openDrawer = () => {
-          cartBackdrop.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        };
-
-        const closeDrawer = () => {
-          cartBackdrop.classList.remove('open');
-          document.body.style.overflow = '';
-        };
-
-        openCartBtn.addEventListener('click', openDrawer);
-        closeCartBtn.addEventListener('click', closeDrawer);
-
-        cartBackdrop.addEventListener('click', (e) => {
-          if (e.target === cartBackdrop) closeDrawer();
-        });
-
-        // Adicionar pacotes
-        document.querySelectorAll('.add-to-cart-trigger').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const title = btn.getAttribute('data-pack-title');
-            const card = btn.closest('.plan-box');
-            const price = parseFloat(card.querySelector('.price-val').textContent);
-
-            const existing = cart.find(x => x.title === title);
-            if (existing) {
-              existing.qty += 1;
-            } else {
-              cart.push({ title, price, qty: 1 });
-            }
-
-            renderCart();
-            openDrawer();
-            triggerToast(`⚡ ${title} adicionado ao seu carrinho!`);
-          });
-        });
-
-        // Finalizar Checkout
-        checkoutBtn.addEventListener('click', () => {
-          if (cart.length === 0) return;
-          checkoutBtn.textContent = 'Processando com Desconto...';
-          checkoutBtn.disabled = true;
-
-          setTimeout(() => {
-            alert('⚡ PEDIDO CONFIRMADO COM SUCESSO!\n\nSeu pedido foi processado com Frete Grátis. Prepare-se para quebrar recordes no seu treino!');
-            cart = [];
-            renderCart();
-            closeDrawer();
-            checkoutBtn.textContent = 'Finalizar Pedido com Desconto ⚡';
-            checkoutBtn.disabled = false;
-          }, 800);
-        });
-
-        renderCart();
-      };
-
-      // Inicia todos os componentes
+      // Inicia todos os componentes interativos
       initHeroBatteryAndTilt();
       initShakerInteraction();
       initCalculator();
       initGymSimulator();
       initTabs();
-      initPricing();
+      initProtocols();
       initReviewsFilter();
       initFAQ();
-      initCart();
     });
   </script>
 </body>
