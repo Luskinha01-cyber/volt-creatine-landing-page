@@ -1,0 +1,3403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="VOLT CREATINE — A creatina mais pura, rápida e potente para seu treino. Destrave mais repetições, mais explosão muscular e recuperação turbo.">
+  <meta name="theme-color" content="#090A0C">
+  <title>VOLT CREATINE ⚡</title>
+
+  <!-- Google Fonts: Space Grotesk (Títulos com energia), Inter (Leitura rápida) e JetBrains Mono (Métricas gamificadas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #090A0C;
+      --bg-surface: #121418;
+      --bg-elevated: #1A1D24;
+      --bg-glass: rgba(18, 20, 24, 0.85);
+
+      --text-primary: #F4F5F7;
+      --text-secondary: #A0A6B5;
+      --text-muted: #626978;
+
+      --accent-volt: #D4FF00;
+      --accent-volt-hover: #b8e000;
+      --accent-volt-glow: rgba(212, 255, 0, 0.35);
+      --accent-cyan: #00E5FF;
+      --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+      --accent-orange: #FF5500;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.16);
+      --border-volt: rgba(212, 255, 0, 0.4);
+
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.55;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Grid e ambient glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(212, 255, 0, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(0, 229, 255, 0.04) 0%, transparent 45%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-volt) !important;
+      outline-offset: 3px !important;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      max-width: 65ch;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-padding {
+      padding: clamp(4rem, 7vw, 7rem) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.85rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: 30px;
+      color: var(--accent-volt);
+      box-shadow: 0 0 15px rgba(212, 255, 0, 0.1);
+    }
+
+    .pill-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-volt);
+      box-shadow: 0 0 8px var(--accent-volt);
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-header .tagline {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      margin-bottom: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+      position: relative;
+    }
+
+    .btn-volt {
+      background: var(--accent-volt);
+      color: #070809;
+      box-shadow: 0 4px 20px var(--accent-volt-glow);
+    }
+
+    .btn-volt:hover {
+      background: var(--accent-volt-hover);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 6px 25px rgba(212, 255, 0, 0.5);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-volt);
+      color: var(--accent-volt);
+      transform: translateY(-2px);
+    }
+
+    /* HEADER */
+    .top-energy-banner {
+      background: #08090C;
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 0.45rem 1rem;
+      text-align: center;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+
+    .top-energy-banner strong {
+      color: var(--accent-volt);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.4rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #fff;
+    }
+
+    .brand-logo .bolt-icon {
+      color: var(--accent-volt);
+      font-size: 1.3rem;
+      filter: drop-shadow(0 0 8px var(--accent-volt));
+      animation: wiggleBolt 3s ease-in-out infinite;
+    }
+
+    @keyframes wiggleBolt {
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      10% {
+        transform: rotate(-12deg);
+      }
+
+      20% {
+        transform: rotate(14deg);
+      }
+
+      30% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .brand-logo .brand-highlight {
+      color: var(--accent-volt);
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: rgba(212, 255, 0, 0.12);
+      border: 1px solid var(--border-volt);
+      color: var(--accent-volt);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-left: 0.3rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-volt);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.85rem;
+      height: 2.85rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: #fff;
+      transition: all var(--transition-fast);
+    }
+
+    .cart-btn:hover {
+      border-color: var(--accent-volt);
+      transform: translateY(-2px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--accent-volt);
+      color: #070809;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding-top: clamp(2.5rem, 5vw, 4.5rem);
+      padding-bottom: clamp(4rem, 7vw, 6.5rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      margin: 1.25rem 0 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-title .highlight-volt {
+      color: var(--accent-volt);
+      display: block;
+      text-shadow: 0 0 25px rgba(212, 255, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .hero-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-badge-item .icon {
+      color: var(--accent-volt);
+    }
+
+    /* CARD INTERATIVO COM A IMAGEM DO POTE 3D & 3D TILT EFFECT */
+    .hero-interactive-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      perspective: 1000px;
+      transition: border-color var(--transition-smooth);
+    }
+
+    .hero-interactive-card:hover {
+      border-color: var(--border-volt);
+    }
+
+    /* Showcase da Imagem do Pote com Hotspots */
+    .hero-product-showcase {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      background: #000;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-product-showcase img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), filter 600ms ease;
+    }
+
+    .hero-interactive-card:hover .hero-product-showcase img {
+      transform: scale(1.05);
+      filter: brightness(1.08);
+    }
+
+    /* Hotspots Interativos Flutuantes na Imagem */
+    .image-hotspot {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(9, 10, 12, 0.85);
+      border: 2px solid var(--accent-volt);
+      color: var(--accent-volt);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--accent-volt-glow);
+      animation: pulseGlow 2s infinite;
+      z-index: 10;
+      transition: transform var(--transition-fast);
+    }
+
+    .image-hotspot:hover {
+      transform: scale(1.25);
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(212, 255, 0, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 22px rgba(212, 255, 0, 0.9);
+      }
+    }
+
+    .hotspot-1 {
+      top: 38%;
+      left: 16%;
+    }
+
+    .hotspot-2 {
+      bottom: 22%;
+      right: 18%;
+    }
+
+    .hotspot-tooltip {
+      position: absolute;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-volt);
+      color: #fff;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all var(--transition-fast);
+      z-index: 20;
+    }
+
+    .image-hotspot:hover .hotspot-tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hotspot-1 .hotspot-tooltip {
+      top: -35px;
+      left: -10px;
+    }
+
+    .hotspot-2 .hotspot-tooltip {
+      bottom: -35px;
+      right: -10px;
+    }
+
+    /* Barra de Bateria ATP */
+    .atp-battery-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .battery-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .battery-frame {
+      width: 100%;
+      height: 24px;
+      background: #090A0C;
+      border: 2px solid var(--border-medium);
+      border-radius: 6px;
+      padding: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .battery-fill {
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(90deg, #FF5500, var(--accent-volt));
+      border-radius: 3px;
+      transition: width 400ms cubic-bezier(0.16, 1, 0.3, 1), background 400ms ease;
+      box-shadow: 0 0 15px rgba(212, 255, 0, 0.5);
+    }
+
+    .battery-state-text {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.6rem;
+    }
+
+    .interactive-scoop-trigger {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, rgba(212, 255, 0, 0.15) 0%, rgba(212, 255, 0, 0.03) 100%);
+      border: 1px dashed var(--accent-volt);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all var(--transition-fast);
+    }
+
+    .interactive-scoop-trigger:hover {
+      background: var(--accent-volt);
+      color: #070809;
+      border-style: solid;
+      transform: scale(1.02);
+      box-shadow: 0 4px 20px var(--accent-volt-glow);
+    }
+
+    .interactive-stats-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .stat-mini-pill {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.4rem;
+      text-align: center;
+    }
+
+    .stat-mini-pill .value {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent-volt);
+    }
+
+    .stat-mini-pill .label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 0.15rem;
+    }
+
+    /* SEÇÃO DE SHAKER COM SLIDER INTERATIVO DE DISSOLUÇÃO */
+    .shaker-interactive-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      margin-top: 3.5rem;
+    }
+
+    .shaker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .shaker-image-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .shaker-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: filter 300ms ease, transform 500ms ease;
+    }
+
+    .shaker-overlay-badge {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      background: rgba(9, 10, 12, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-volt);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dissolve-interactive-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .dissolve-timer-badge {
+      font-family: var(--font-mono);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .dissolve-timer-badge span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* MINI-GAME / SIMULADOR DE SÉRIE NA ACADEMIA (COM A IMAGEM DO ATLETA) */
+    .gym-simulator-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 2.5rem);
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .gym-sim-headline {
+      margin-bottom: 1.5rem;
+    }
+
+    .gym-sim-headline h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Imagem Cinematográfica do Atleta com Relâmpagos de ATP */
+    .athlete-power-banner {
+      width: 100%;
+      height: 320px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-volt);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .athlete-power-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .athlete-power-banner:hover img {
+      transform: scale(1.04);
+    }
+
+    .athlete-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 10, 12, 0.2) 0%, rgba(9, 10, 12, 0.8) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .athlete-banner-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-volt);
+      background: rgba(9, 10, 12, 0.7);
+      border: 1px solid var(--border-volt);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+
+    .athlete-banner-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .gym-arena {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+
+    .arena-column {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .arena-column.energized {
+      border-color: var(--accent-volt);
+      background: linear-gradient(180deg, rgba(212, 255, 0, 0.05) 0%, var(--bg-elevated) 100%);
+    }
+
+    .arena-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .arena-column:not(.energized) .arena-badge {
+      background: #252830;
+      color: #9BA1AE;
+    }
+
+    .arena-column.energized .arena-badge {
+      background: var(--accent-volt);
+      color: #070809;
+    }
+
+    .reps-counter-display {
+      font-family: var(--font-mono);
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .arena-column:not(.energized) .reps-counter-display {
+      color: #F87171;
+    }
+
+    .arena-column.energized .reps-counter-display {
+      color: var(--accent-volt);
+    }
+
+    .fatigue-bar-frame {
+      width: 100%;
+      height: 12px;
+      background: #090A0C;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .fatigue-bar-fill-tired {
+      width: 100%;
+      height: 100%;
+      background: #F87171;
+      transition: width 0.3s;
+    }
+
+    .fatigue-bar-fill-volt {
+      width: 40%;
+      height: 100%;
+      background: var(--accent-volt);
+      box-shadow: 0 0 10px var(--accent-volt);
+      transition: width 0.3s;
+    }
+
+    /* CALCULADORA DIVERTIDA & INTERATIVA */
+    .calculator-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .calc-slider-block {
+      margin-bottom: 2rem;
+    }
+
+    .slider-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .slider-title-row label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .slider-number-badge {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-volt);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-volt);
+      padding: 0.2rem 0.8rem;
+      border-radius: 6px;
+    }
+
+    .styled-range {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      outline: none;
+    }
+
+    .styled-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent-volt);
+      cursor: pointer;
+      border: 4px solid #070809;
+      box-shadow: 0 0 15px var(--accent-volt);
+      transition: transform var(--transition-fast);
+    }
+
+    .styled-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .goal-toggle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .goal-btn {
+      padding: 0.9rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      text-align: left;
+      transition: all var(--transition-fast);
+    }
+
+    .goal-btn:hover {
+      border-color: var(--border-medium);
+    }
+
+    .goal-btn.active {
+      background: rgba(212, 255, 0, 0.08);
+      border-color: var(--accent-volt);
+    }
+
+    .goal-btn .btn-head {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .goal-btn.active .btn-head {
+      color: var(--accent-volt);
+    }
+
+    .goal-btn .btn-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .calc-power-result {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .power-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .power-score-display {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-volt);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      text-align: center;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .power-score-display .number {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-volt);
+      line-height: 1;
+    }
+
+    .power-score-display .unit {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    .power-score-display .sub {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .power-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .detail-card-small {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+    }
+
+    .detail-card-small .num {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+    }
+
+    .detail-card-small .txt {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .fun-advice-box {
+      background: rgba(0, 229, 255, 0.06);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 0.85rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ABAS DE BENEFÍCIOS */
+    .tabs-nav {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-trigger-btn {
+      padding: 0.75rem 1.4rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .tab-trigger-btn:hover {
+      color: #fff;
+      border-color: var(--border-medium);
+    }
+
+    .tab-trigger-btn.active {
+      background: var(--accent-volt);
+      color: #070809;
+      border-color: var(--accent-volt);
+      box-shadow: 0 4px 15px var(--accent-volt-glow);
+    }
+
+    .benefit-card-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 2.5rem);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .benefit-pane {
+      display: none;
+    }
+
+    .benefit-pane.active {
+      display: contents;
+    }
+
+    .benefit-highlight-badge {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-volt);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .benefit-highlight-badge .huge-num {
+      font-family: var(--font-mono);
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--accent-volt);
+      line-height: 1;
+    }
+
+    .benefit-highlight-badge .huge-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0.5rem 0;
+    }
+
+    /* TABELA NUTRICIONAL CLEAN E COMPARATIVO */
+    .purity-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(1.5rem, 3vw, 3rem);
+      align-items: start;
+    }
+
+    .clean-label-card {
+      background: #090A0C;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .clean-label-card h3 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+
+    .label-line {
+      height: 1px;
+      background: #fff;
+      margin: 0.4rem 0;
+    }
+
+    .label-line.heavy {
+      height: 6px;
+      margin: 0.6rem 0;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.88rem;
+    }
+
+    .label-row.highlight-crea {
+      background: rgba(212, 255, 0, 0.1);
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-weight: 700;
+      color: var(--accent-volt);
+    }
+
+    .comparison-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .comp-table th,
+    .comp-table td {
+      padding: 1.1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comp-table th {
+      background: var(--bg-elevated);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .comp-table th.volt-col {
+      color: var(--accent-volt);
+      background: rgba(212, 255, 0, 0.05);
+      border-left: 1px solid var(--border-volt);
+      border-right: 1px solid var(--border-volt);
+    }
+
+    .comp-table td.volt-col {
+      background: rgba(212, 255, 0, 0.02);
+      border-left: 1px solid var(--border-volt);
+      border-right: 1px solid var(--border-volt);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* MITOS VS FATOS */
+    .myths-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .interactive-myth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+      position: relative;
+    }
+
+    .interactive-myth-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-volt);
+    }
+
+    .myth-top-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #F87171;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .interactive-myth-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .truth-inner-box {
+      background: var(--bg-elevated);
+      border-left: 3px solid var(--accent-volt);
+      padding: 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .truth-inner-box strong {
+      display: block;
+      color: var(--accent-volt);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .truth-inner-box p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    /* VITRINE DE COMBOS / PLANOS */
+    .pricing-pill-switch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .pill-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: 30px;
+      padding: 0.35rem;
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .pill-mode-btn {
+      padding: 0.65rem 1.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 25px;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+    }
+
+    .pill-mode-btn.active {
+      background: var(--accent-volt);
+      color: #070809;
+    }
+
+    .save-tag {
+      background: rgba(212, 255, 0, 0.15);
+      border: 1px solid var(--border-volt);
+      color: var(--accent-volt);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+    }
+
+    .plans-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .plan-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .plan-box:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-volt);
+    }
+
+    .plan-box.popular {
+      border: 2px solid var(--accent-volt);
+      background: linear-gradient(180deg, rgba(212, 255, 0, 0.05) 0%, var(--bg-surface) 35%);
+    }
+
+    .popular-floating-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-volt);
+      color: #070809;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px var(--accent-volt-glow);
+    }
+
+    .plan-box-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .plan-box-sub {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+    }
+
+    .plan-price-wrap {
+      margin: 1.5rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .plan-price-wrap .currency {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      vertical-align: super;
+      margin-right: 0.2rem;
+    }
+
+    .plan-price-wrap .price-val {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .plan-daily-cost {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-volt);
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    .plan-perks-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .plan-perks-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .plan-perks-list li svg {
+      color: var(--accent-volt);
+      flex-shrink: 0;
+    }
+
+    /* DEPOIMENTOS */
+    .filter-pills-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .filter-chip-btn {
+      padding: 0.5rem 1.1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .filter-chip-btn.active {
+      background: rgba(212, 255, 0, 0.1);
+      border-color: var(--accent-volt);
+      color: var(--accent-volt);
+    }
+
+    .reviews-stream-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .athlete-review-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .review-user-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review-user-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .review-sport-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+    }
+
+    .stars-line {
+      color: var(--accent-volt);
+      letter-spacing: 2px;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-container {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .faq-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+
+    .faq-box:hover {
+      border-color: var(--border-medium);
+    }
+
+    .faq-btn-trigger {
+      width: 100%;
+      padding: 1.35rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: left;
+    }
+
+    .faq-btn-trigger:hover {
+      color: var(--accent-volt);
+    }
+
+    .faq-cross-icon {
+      color: var(--accent-volt);
+      transition: transform var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .faq-answer-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease;
+      padding: 0 1.5rem;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+    }
+
+    .faq-answer-inner p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .faq-box.open {
+      border-color: var(--border-volt);
+    }
+
+    .faq-box.open .faq-cross-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-box.open .faq-answer-panel {
+      max-height: 400px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #060709;
+      border-top: 1px solid var(--border-subtle);
+      padding: clamp(3rem, 5vw, 4.5rem) 0 2rem;
+    }
+
+    .footer-columns-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-columns-grid h4 {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-volt);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-links-list a {
+      color: var(--text-secondary);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links-list a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom-row {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* DRAWER DO CARRINHO */
+    .cart-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .cart-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-medium);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform var(--transition-smooth);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .cart-backdrop.open .cart-drawer-panel {
+      transform: translateX(0);
+    }
+
+    .drawer-top-bar {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-top-bar h3 {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .drawer-close {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+    }
+
+    .drawer-shipping-notice {
+      background: rgba(212, 255, 0, 0.08);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.65rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-volt);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .drawer-items-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cart-item-row {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+    }
+
+    .cart-item-thumb {
+      background: #090A0C;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info h4 {
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-item-info .type {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .cart-item-info .price {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--accent-volt);
+      margin-top: 0.35rem;
+      display: block;
+    }
+
+    .drawer-bottom-bar {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .drawer-sum-line {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .drawer-sum-line.total {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.6rem;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--accent-volt);
+      padding: 0.9rem 1.4rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all var(--transition-smooth);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 992px) {
+
+      .hero-grid,
+      .calculator-grid,
+      .purity-grid,
+      .benefit-card-box,
+      .gym-arena,
+      .shaker-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .myths-cards-grid,
+      .plans-cards-grid,
+      .reviews-stream-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .footer-columns-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interactive-stats-pills {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-toggle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .power-details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .athlete-power-banner {
+        height: 230px;
+      }
+
+      .shaker-image-container {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BANNER SUPERIOR DE ENERGIA -->
+  <div class="top-energy-banner">
+    ⚡ <strong>VOLT CREATINE:</strong> MICRONIZAÇÃO 200 MESH • ZERO RETENÇÃO SUBCUTÂNEA • DISSOLVE EM 5 SEGUNDOS • FRETE
+    GRÁTIS HOJE
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Navegação Principal">
+        <a href="#" class="brand-logo">
+          <span class="bolt-icon">⚡</span>
+          VOLT<span class="brand-highlight">CREATINE</span>
+          <span class="brand-badge">200 MESH</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#calculadora">Calculadora de Dose</a></li>
+          <li><a href="#simulador">Simulador de Treino</a></li>
+          <li><a href="#solubilidade">Dissolução 200 Mesh</a></li>
+          <li><a href="#beneficios">Superpoderes</a></li>
+          <li><a href="#mitos">Mitos da Academia</a></li>
+          <li><a href="#planos">Garanta Seu Pote</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cart-btn" id="openCartBtn" aria-label="Abrir Carrinho">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cartCountBadge">1</span>
+          </button>
+
+          <a href="#calculadora" class="btn btn-volt" style="padding: 0.65rem 1.2rem; font-size: 0.8rem;">
+            Calcular Minha Dose ⚡
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION COM O POTE 3D REAL E BATERIA DE ENERGIA INTERATIVA -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Coluna Esquerda: Chamada Direta e Descomplicada -->
+          <div class="hero-content">
+            <div class="pill-badge">
+              <span class="dot"></span>
+              RECARGA INSTANTÂNEA DE FORÇA MUSCULAR
+            </div>
+
+            <h1 class="hero-title">
+              Destrave Mais Carga.
+              <span class="highlight-volt">+3 Repetições Pesadas em Cada Série.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Sabe aquela última repetição no supino ou no agachamento que trava no meio do caminho? A <strong>VOLT
+                CREATINE</strong> recarrega a bateria de energia dos seus músculos (ATP) para você vencer a falha e
+              construir massa magra de verdade.
+            </p>
+
+            <div class="hero-cta-bar">
+              <a href="#planos" class="btn btn-volt">
+                Ativar Meu Modo Besta
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+              <a href="#simulador" class="btn btn-ghost">
+                Testar no Simulador de Reps 🎮
+              </a>
+            </div>
+
+            <div class="hero-badges-row">
+              <div class="hero-badge-item">
+                <span class="icon">✓</span>
+                <span><strong>99.9% Pura</strong> (Sem misturas baratas)</span>
+              </div>
+              <div class="hero-badge-item">
+                <span class="icon">✓</span>
+                <span><strong>Zero Gosto Ruim</strong> (Dissolução total)</span>
+              </div>
+              <div class="hero-badge-item">
+                <span class="icon">✓</span>
+                <span><strong>100% Vegana</strong> e Sem Glúten</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Imagem do Pote 3D com Hotspots + Bateria ATP -->
+          <div class="hero-interactive-card" id="heroInteractiveCard">
+            <!-- Showcase do Pote 3D com Hotspots Interativos -->
+            <div class="hero-product-showcase">
+              <img src="Gemini_Generated_Image_garwtfgarwtfgarw.jpg"
+                alt="Pote de Creatina Pura VOLT com faíscas de energia ATP e scoop nivelado" id="productBottleImg">
+
+              <!-- Hotspot 1: Pureza do Pó -->
+              <div class="image-hotspot hotspot-1" aria-label="Detalhe da Pureza">
+                <span>+</span>
+                <div class="hotspot-tooltip">⚡ 100% Pura • 200 Mesh Micronizada</div>
+              </div>
+
+              <!-- Hotspot 2: Scoop de Precisão -->
+              <div class="image-hotspot hotspot-2" aria-label="Detalhe do Scoop">
+                <span>+</span>
+                <div class="hotspot-tooltip">🥄 Scoop Preciso de 3g Incluso</div>
+              </div>
+            </div>
+
+            <!-- Simulador de Barra de Bateria ATP -->
+            <div class="atp-battery-box">
+              <div class="battery-label-row">
+                <span>ESTOQUE DE FORÇA NO MÚSCULO</span>
+                <span id="batteryPercentText" style="color: var(--accent-volt);">35% (Sem Creatina)</span>
+              </div>
+
+              <div class="battery-frame">
+                <div class="battery-fill" id="heroBatteryFill"></div>
+              </div>
+
+              <p class="battery-state-text" id="batteryStatusMsg">
+                ⚠️ Seus músculos entram em fadiga precoce na 6ª repetição.
+              </p>
+            </div>
+
+            <!-- Botão Interativo que enche a barra na hora! -->
+            <button class="interactive-scoop-trigger" id="takeScoopHeroBtn">
+              <span>🥄 CLIQUE AQUI: TOMAR 1 SCOOP DE VOLT</span>
+            </button>
+
+            <div class="interactive-stats-pills">
+              <div class="stat-mini-pill">
+                <div class="value" id="maxLoadBoost">+0 kg</div>
+                <div class="label">Bônus de Carga</div>
+              </div>
+              <div class="stat-mini-pill">
+                <div class="value" id="repsBoost">+0 reps</div>
+                <div class="label">Reps Extras</div>
+              </div>
+              <div class="stat-mini-pill">
+                <div class="value">5 seg</div>
+                <div class="label">Dissolução</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA DE DOSAGEM INTERATIVA E DIVERTIDA -->
+    <section id="calculadora" class="section-padding">
+      <div class="container">
+        <div class="section-header center">
+          <span class="tagline">DESCUBRA SUA FÓRMULA EXATA</span>
+          <h2>Calculadora de Dose Personalizada</h2>
+          <p style="margin: 0 auto;">
+            Chega de adivinhar ou tomar dose errada. Ajuste seu peso corporal e veja na hora quantos gramas tomar para
+            extrair o máximo do seu treino.
+          </p>
+        </div>
+
+        <div class="calculator-card">
+          <div class="calculator-grid">
+            <!-- Controles do Usuário -->
+            <div class="calc-inputs-col">
+              <div class="calc-slider-block">
+                <div class="slider-title-row">
+                  <label for="bodyWeightSlider">Qual é o seu peso corporal?</label>
+                  <span class="slider-number-badge" id="bodyWeightDisplay">76 kg</span>
+                </div>
+                <input type="range" id="bodyWeightSlider" class="styled-range" min="40" max="140" value="76" step="1">
+                <div
+                  style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem;">
+                  <span>40 kg</span>
+                  <span>90 kg</span>
+                  <span>140 kg</span>
+                </div>
+              </div>
+
+              <!-- Estratégia de Treino -->
+              <div
+                style="margin-bottom: 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">
+                Qual é a sua pressa para os resultados?
+              </div>
+              <div class="goal-toggle-grid">
+                <button type="button" class="goal-btn active" id="btnGoalSteady" data-mode="steady">
+                  <span class="btn-head">🚀 Modo Constante</span>
+                  <span class="btn-desc">1 dose diária todo dia. Saturação suave e sustentável em 3 semanas.</span>
+                </button>
+                <button type="button" class="goal-btn" id="btnGoalTurbo" data-mode="turbo">
+                  <span class="btn-head">⚡ Modo Saturação Turbo</span>
+                  <span class="btn-desc">Dose turbinada por 7 dias para encher o músculo no menor tempo possível.</span>
+                </button>
+              </div>
+
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
+                💡 <em>Dica de ouro:</em> Tome sua creatina com um carboidrato ou após o almoço para absorção
+                ultra-rápida.
+              </div>
+            </div>
+
+            <!-- Painel de Resultados do Treino -->
+            <div class="calc-power-result">
+              <div>
+                <div class="power-result-header">
+                  <span>SUA PRESCRIÇÃO IDEAL</span>
+                  <span style="color: var(--accent-volt); font-weight: 800;" id="modeBadgeText">PROTOCOLO
+                    CONSTANTE</span>
+                </div>
+
+                <div class="power-score-display">
+                  <span class="number" id="resultDailyGrams">5.3</span>
+                  <span class="unit">g / dia</span>
+                  <div class="sub">Quantidade recomendada para o seu corpo</div>
+                </div>
+
+                <div class="power-details-grid">
+                  <div class="detail-card-small">
+                    <div class="num" id="resultScoops">1.8</div>
+                    <div class="txt">Scoops dosadores (3g)</div>
+                  </div>
+                  <div class="detail-card-small">
+                    <div class="num" id="resultSaturationDays">21</div>
+                    <div class="txt">Dias p/ Potência Total</div>
+                  </div>
+                </div>
+
+                <div class="fun-advice-box" id="funAdviceText">
+                  💪 <strong>Seu plano de ação:</strong> 1 scoop e meio por dia. Não precisa parar nos finais de semana
+                  para não perder a força acumulada!
+                </div>
+              </div>
+
+              <a href="#planos" class="btn btn-volt" style="width: 100%; padding: 0.85rem;">
+                Garantir Meu Pote com Frete Grátis
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULADOR INTERATIVO COM A IMAGEM CINEMATOGRÁFICA DO ATLETA -->
+        <div class="gym-simulator-wrapper" id="simulador">
+          <div class="gym-sim-headline">
+            <span class="tagline">SIMULADOR INTERATIVO DE SÉRIE PESADA</span>
+            <h3>O que acontece quando você toma Creatina de verdade?</h3>
+            <p style="margin: 0 auto;">
+              Veja a ressíntese elétrica de ATP nos seus músculos. Clique no botão e sinta a diferença de quem aguenta o
+              treino no limite!
+            </p>
+          </div>
+
+          <!-- Banner Cinematográfico com a Foto do Atleta e Relâmpagos ATP -->
+          <div class="athlete-power-banner">
+            <img src="Gemini_Generated_Image_a0z68a0z68a0z68a.jpg"
+              alt="Atleta erguendo barra pesada com raios de energia ATP nas anilhas e corpo" id="athleteBannerImg">
+            <div class="athlete-banner-overlay">
+              <span class="athlete-banner-tag">⚡ 100% POWER • RESSÍNTESE BIOMECÂNICA DE ATP</span>
+              <div class="athlete-banner-text">Músculos saturados = Cargas 15% maiores sem falha prematura</div>
+            </div>
+          </div>
+
+          <div class="gym-arena">
+            <!-- Sem creatina -->
+            <div class="arena-column">
+              <span class="arena-badge">SEM SUPLEMENTAÇÃO</span>
+              <div class="reps-counter-display" id="repsTiredDisplay">6 Reps</div>
+              <p style="font-size: 0.88rem; color: #F87171;">O ATP acaba no 4º segundo e o ácido láctico queima as
+                fibras. Falha muscular precoce!</p>
+              <div class="fatigue-bar-frame">
+                <div class="fatigue-bar-fill-tired"></div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">MÚSCULO
+                ESGOTADO ⛔</span>
+            </div>
+
+            <!-- Com VOLT CREATINE -->
+            <div class="arena-column energized">
+              <span class="arena-badge">COM VOLT CREATINE ⚡</span>
+              <div class="reps-counter-display" id="repsVoltDisplay">10 Reps!</div>
+              <p style="font-size: 0.88rem; color: var(--accent-volt);">Fosfocreatina renova a energia na hora. Você faz
+                mais 3 a 4 repetições completas com boa postura!</p>
+              <div class="fatigue-bar-frame">
+                <div class="fatigue-bar-fill-volt" id="simVoltBar"></div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">FORÇA
+                EXPLOSIVA SUSTENTADA 🔥</span>
+            </div>
+          </div>
+
+          <button class="btn btn-volt" id="btnPumpMoreReps" style="margin-top: 0.5rem;">
+            🥊 Pressionar Mais Carga (+1 Repetição)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO INTERATIVA: DISSOLUÇÃO EM 5 SEGUNDOS (COM A IMAGEM DO SHAKER TRANSPARENTE) -->
+    <section id="solubilidade" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="tagline">TESTE DA ÁGUA GELADA</span>
+          <h2>Dissolução Total em Menos de 5 Segundos</h2>
+          <p>
+            Nada de tomar areia ou engolir pó empelotado. Veja como a micronização em 200 Mesh da VOLT se comporta ao
+            tocar a água.
+          </p>
+        </div>
+
+        <div class="shaker-interactive-section">
+          <div class="shaker-grid">
+            <!-- Imagem Interativa do Scoop caindo no Shaker -->
+            <div class="shaker-image-container" id="shakerCard">
+              <img src="Gemini_Generated_Image_wuatqfwuatqfwuat.jpg"
+                alt="Scoop de creatina despejando pó micronizado dissolvendo instantaneamente em copo com água e cubos de gelo"
+                id="shakerImg">
+              <div class="shaker-overlay-badge">
+                <span style="color: var(--accent-cyan); font-weight: 800;">● TESTADO EM ÁGUA GELADA</span>
+                <span>Zero Resíduos no Fundo</span>
+              </div>
+            </div>
+
+            <!-- Painel Interativo de Dissolução -->
+            <div class="dissolve-interactive-box">
+              <div class="pill-badge" style="width: fit-content;">
+                <span class="dot"></span> 200 MESH MICRO-PARTICLES
+              </div>
+
+              <h3 style="font-size: 2rem; line-height: 1.2;">
+                Esqueça aquela sensação de mastigar pó no final da garrafa.
+              </h3>
+
+              <p style="font-size: 1rem; line-height: 1.6;">
+                Nossas partículas são até 20 vezes menores do que as creatinas convencionais. Ao entrar em contato com
+                água fria, o pó se dispersa instantaneamente, permitindo absorção pelo intestino sem desconforto
+                gástrico.
+              </p>
+
+              <div>
+                <span
+                  style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">Tempo
+                  Médio de Dissolução:</span>
+                <div class="dissolve-timer-badge">
+                  04.8s <span>/ Instantâneo</span>
+                </div>
+              </div>
+
+              <button class="btn btn-ghost" id="btnTestDissolve" style="width: fit-content;">
+                🌊 Simular Mistura no Copo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPERPODERES DA CREATINA (INTERACTIVE TABS) -->
+    <section id="beneficios" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="tagline">CIÊNCIA SEM PALAVREADO DIFÍCIL</span>
+          <h2>O que a Creatina Faz no Seu Corpo</h2>
+          <p>
+            Não é mágica nem hormônio sintético. É o combustível natural que suas células mais amam durante esforço
+            máximo.
+          </p>
+        </div>
+
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-trigger-btn active" data-tab-id="tabPower" role="tab" aria-selected="true">
+            💥 Mais Carga nos Exercícios
+          </button>
+          <button class="tab-trigger-btn" data-tab-id="tabVolume" role="tab" aria-selected="false">
+            💧 Volume Muscular Firme
+          </button>
+          <button class="tab-trigger-btn" data-tab-id="tabSpeed" role="tab" aria-selected="false">
+            ⏱️ Descanso Mais Rápido
+          </button>
+          <button class="tab-trigger-btn" data-tab-id="tabFocus" role="tab" aria-selected="false">
+            🧠 Foco e Disposição Mental
+          </button>
+        </div>
+
+        <div class="benefit-card-box">
+          <!-- Aba 1 -->
+          <div class="benefit-pane active" id="tabPower">
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Suba o peso das anilhas com segurança</h3>
+              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                A creatina permite que suas fibras rápidas mantenham a contração em 100% por mais tempo. O aumento médio
+                de carga em supino e agachamento varia de <strong>8kg a 15kg</strong> após as primeiras semanas de uso
+                consistente.
+              </p>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Comprovado por
+                mais de 500 estudos de fisiologia esportiva.</span>
+            </div>
+            <div class="benefit-highlight-badge">
+              <div class="huge-num">+15%</div>
+              <div class="huge-text">Ganho de Carga Máxima</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Mais tensão mecânica = Muito mais hipertrofia
+                muscular</p>
+            </div>
+          </div>
+
+          <!-- Aba 2 -->
+          <div class="benefit-pane" id="tabVolume">
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Músculo mais cheio, denso e desenhado</h3>
+              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                A creatina puxa água para <strong>DENTRO</strong> da célula muscular (hidratação intracelular). Isso
+                significa que seu músculo fica mais duro e volumoso, sem deixar você com barriga d'água ou pele grossa.
+              </p>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Zero retenção
+                subcutânea. O volume fica 100% no músculo.</span>
+            </div>
+            <div class="benefit-highlight-badge">
+              <div class="huge-num">100%</div>
+              <div class="huge-text">Hidratação Celular Real</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Aspecto visual de músculo sempre com pump
+                pós-treino</p>
+            </div>
+          </div>
+
+          <!-- Aba 3 -->
+          <div class="benefit-pane" id="tabSpeed">
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Recuperação express entre cada série</h3>
+              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                Em vez de ficar 3 minutos sentado no banco esperando a queimação passar, seu corpo restabelece a energia
+                em 60 a 90 segundos. Você faz um treino mais intenso na metade do tempo.
+              </p>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Treinos mais
+                densos geram queima calórica superior.</span>
+            </div>
+            <div class="benefit-highlight-badge">
+              <div class="huge-num">-40s</div>
+              <div class="huge-text">Menor Tempo de Descanso</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Você mantém o mesmo ritmo do começo ao fim do
+                treino</p>
+            </div>
+          </div>
+
+          <!-- Aba 4 -->
+          <div class="benefit-pane" id="tabFocus">
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Cérebro afiado e menos cansaço mental</h3>
+              <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                O cérebro consome 20% da sua energia corporal. Atletas e pessoas que tomam creatina relatam menor fadiga
+                mental, raciocínio mais rápido em dias estressantes e proteção contra cansaço de noites mal dormidas.
+              </p>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">Benefício
+                duplo: corpo blindado na academia e mente rápida no trabalho.</span>
+            </div>
+            <div class="benefit-highlight-badge">
+              <div class="huge-num">+20%</div>
+              <div class="huge-text">Clareza & Foco Neural</div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Energia limpa para seus neurônios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELA NUTRICIONAL CLEAN & COMPARATIVO -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="tagline">TRANSPARÊNCIA TOTAL</span>
+          <h2>O que tem dentro do pote?</h2>
+          <p>
+            Zero amido, zero maltodextrina, zero farinha disfarçada. Apenas creatina monohidratada pura filtrada em
+            malha 200 Mesh.
+          </p>
+        </div>
+
+        <div class="purity-grid">
+          <!-- Rótulo Limpo -->
+          <div class="clean-label-card">
+            <h3>RÓTULO LIMPO</h3>
+            <div
+              style="font-family: var(--font-mono); font-size: 0.75rem; color: #9CA3AF; display: flex; justify-content: space-between;">
+              <span>Porção: 3g (1 Scoop)</span>
+              <span>100 Doses por Pote</span>
+            </div>
+
+            <div class="label-line heavy"></div>
+
+            <div class="label-row" style="font-weight: 700;">
+              <span>Item</span>
+              <span>Quantidade</span>
+            </div>
+            <div class="label-row">
+              <span>Calorias</span>
+              <span>0 kcal</span>
+            </div>
+            <div class="label-row">
+              <span>Carboidratos / Açúcar</span>
+              <span>0.0 g</span>
+            </div>
+            <div class="label-row">
+              <span>Gorduras</span>
+              <span>0.0 g</span>
+            </div>
+            <div class="label-row">
+              <span>Sódio</span>
+              <span>0.0 mg</span>
+            </div>
+
+            <div class="label-line"></div>
+
+            <div class="label-row highlight-crea">
+              <span>Creatina Monohidratada Pura</span>
+              <span>3.000 mg</span>
+            </div>
+
+            <div class="label-line heavy"></div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #9CA3AF; margin-top: 0.75rem;">
+              Ingredientes: 100% Creatina Monohidratada Micronizada 200 Mesh. NÃO CONTÉM GLÚTEN. ZERO LACTOSE.
+            </div>
+          </div>
+
+          <!-- Comparativo -->
+          <div class="comparison-card">
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>O que você busca?</th>
+                  <th class="volt-col">VOLT CREATINE ⚡</th>
+                  <th>Creatina Barata Comum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Pureza</strong></td>
+                  <td class="volt-col">99.9% Testada em Laboratório</td>
+                  <td style="color: #F87171;">Misturada ou com umidade</td>
+                </tr>
+                <tr>
+                  <td><strong>Textura do pó</strong></td>
+                  <td class="volt-col">Pó ultrafino 200 Mesh</td>
+                  <td>Grânulos grossos que parecem areia</td>
+                </tr>
+                <tr>
+                  <td><strong>Como dissolve na água?</strong></td>
+                  <td class="volt-col">Em 5 segundos com uma colher</td>
+                  <td style="color: #F87171;">Fica grudada no fundo do copo</td>
+                </tr>
+                <tr>
+                  <td><strong>Conforto no estômago</strong></td>
+                  <td class="volt-col">Leve, não dá enjoo nem refluxo</td>
+                  <td>Pode causar inchaço gástrico</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITOS DA ACADEMIA DESMISTIFICADOS -->
+    <section id="mitos" class="section-padding">
+      <div class="container">
+        <div class="section-header center">
+          <span class="tagline">CHEGA DE MENTIRAS NA ACADEMIA</span>
+          <h2>Mitos vs. Fatos da Vida Real</h2>
+          <p style="margin: 0 auto;">
+            Aquilo que o seu amigo da academia falou sem ler nenhum estudo científico.
+          </p>
+        </div>
+
+        <div class="myths-cards-grid">
+          <!-- Mito 1 -->
+          <div class="interactive-myth-card">
+            <div>
+              <span class="myth-top-badge">MITO #1</span>
+              <h3>"Creatina dá pedra nos rins ou estraga os órgãos?"</h3>
+            </div>
+            <div class="truth-inner-box">
+              <strong>A VERDADE REAL:</strong>
+              <p>
+                Mentira pura! Mais de 30 anos de testes clínicos com atletas olímpicos comprovam que a creatina é 100%
+                segura para qualquer pessoa com rins saudáveis. Beba sua água diária normalmente e treine feliz.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mito 2 -->
+          <div class="interactive-myth-card">
+            <div>
+              <span class="myth-top-badge">MITO #2</span>
+              <h3>"Creatina engorda ou deixa o rosto inchado?"</h3>
+            </div>
+            <div class="truth-inner-box">
+              <strong>A VERDADE REAL:</strong>
+              <p>
+                Zero calorias! A creatina não vira gordura. O líquido que ela puxa vai exclusivamente para dentro do
+                músculo, deixando você mais definido e volumoso, sem criar inchaço na pele ou na barriga.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mito 3 -->
+          <div class="interactive-myth-card">
+            <div>
+              <span class="myth-top-badge">MITO #3</span>
+              <h3>"Preciso parar de tomar no domingo ou dia sem treino?"</h3>
+            </div>
+            <div class="truth-inner-box">
+              <strong>A VERDADE REAL:</strong>
+              <p>
+                Não pare! A creatina funciona acumulando estoque no músculo dia após dia. Se você para no final de
+                semana, a bateria começa a esvaziar e você perde parte da força na segunda-feira.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VITRINE DE KITS COM SELETOR DE PREÇO -->
+    <section id="planos" class="section-padding">
+      <div class="container">
+        <div class="section-header center">
+          <span class="tagline">ESCOLHA SEU COMBO DE FORÇA</span>
+          <h2>Abasteça Seus Treinos Hoje</h2>
+          <p style="margin: 0 auto;">
+            Embalagem especial com barreira de umidade e scoop dosador de precisão incluso em todos os kits.
+          </p>
+        </div>
+
+        <!-- Seletor Compra Única vs Assinatura -->
+        <div class="pricing-pill-switch">
+          <div class="pill-container" role="radiogroup">
+            <button type="button" class="pill-mode-btn active" id="btnSingleMode">
+              Compra Única
+            </button>
+            <button type="button" class="pill-mode-btn" id="btnSubMode">
+              Assinatura Automática
+            </button>
+          </div>
+          <span class="save-tag">-15% DE DESCONTO + FRETE GRÁTIS</span>
+        </div>
+
+        <div class="plans-cards-grid">
+          <!-- Kit 1 -->
+          <div class="plan-box">
+            <div>
+              <h3 class="plan-box-title">1 Pote (300g)</h3>
+              <span class="plan-box-sub">Ideal para o Primeiro Ciclo</span>
+              <p style="font-size: 0.82rem; margin-top: 0.5rem;">Perfeito para testar a dissolução e ver suas cargas
+                subirem em 30 dias.</p>
+            </div>
+
+            <div class="plan-price-wrap">
+              <span class="currency">R$</span>
+              <span class="price-val" data-single="97" data-sub="82">97</span>
+              <span class="plan-daily-cost" id="dailyCost1">Apenas R$ 0,97 por dia de treino</span>
+            </div>
+
+            <ul class="plan-perks-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                300g de Creatina Pura 200 Mesh
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Scoop dosador incluso no pote
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Dura de 60 a 100 doses
+              </li>
+            </ul>
+
+            <button class="btn btn-ghost add-to-cart-trigger" data-pack-title="1 Pote VOLT (300g)" data-base-price="97">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+
+          <!-- Kit 2 (Campeão de Vendas) -->
+          <div class="plan-box popular">
+            <div class="popular-floating-tag">⚡ O MAIS VENDIDO // MELHOR PREÇO</div>
+            <div>
+              <h3 class="plan-box-title">Kit 2 Potes (600g)</h3>
+              <span class="plan-box-sub">Ciclo Completo de 6 Meses</span>
+              <p style="font-size: 0.82rem; margin-top: 0.5rem;">O combo favorito de quem treina pesado e quer manter o
+                músculo sempre cheio.</p>
+            </div>
+
+            <div class="plan-price-wrap">
+              <span class="currency">R$</span>
+              <span class="price-val" data-single="167" data-sub="141">167</span>
+              <span class="plan-daily-cost" id="dailyCost2">Apenas R$ 0,83 por dia de treino</span>
+            </div>
+
+            <ul class="plan-perks-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                600g de Creatina Micronizada
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <strong>Frete Grátis</strong> para todo o Brasil
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Economia imediata de R$ 27,00
+              </li>
+            </ul>
+
+            <button class="btn btn-volt add-to-cart-trigger" data-pack-title="Kit 2 Potes VOLT (600g)"
+              data-base-price="167">
+              Garantir Kit 2 Potes ⚡
+            </button>
+          </div>
+
+          <!-- Kit 3 -->
+          <div class="plan-box">
+            <div>
+              <h3 class="plan-box-title">Kit Anual (900g)</h3>
+              <span class="plan-box-sub">Abastecimento para o Ano Todo</span>
+              <p style="font-size: 0.82rem; margin-top: 0.5rem;">3 potes lacrados individuais para nunca faltar creatina
+                na sua rotina.</p>
+            </div>
+
+            <div class="plan-price-wrap">
+              <span class="currency">R$</span>
+              <span class="price-val" data-single="227" data-sub="192">227</span>
+              <span class="plan-daily-cost" id="dailyCost3">Apenas R$ 0,75 por dia de treino</span>
+            </div>
+
+            <ul class="plan-perks-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                900g em 3 frascos lacrados
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <strong>Frete Expresso Prioritário</strong>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                O menor valor por grama do mercado
+              </li>
+            </ul>
+
+            <button class="btn btn-ghost add-to-cart-trigger" data-pack-title="Kit Anual VOLT (900g)"
+              data-base-price="227">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS COM FILTRO RÁPIDO -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="tagline">QUEM JÁ TOMA E APROVA</span>
+          <h2>Atletas e Praticantes Reais</h2>
+          <p>Veja o feedback de quem colocou a VOLT CREATINE na rotina de treino.</p>
+        </div>
+
+        <div class="filter-pills-row">
+          <button class="filter-chip-btn active" data-filter="all">Todos os Treinos (2.480+)</button>
+          <button class="filter-chip-btn" data-filter="musculacao">Musculação Pesada</button>
+          <button class="filter-chip-btn" data-filter="crossfit">Crossfit</button>
+          <button class="filter-chip-btn" data-filter="corrida">Corrida & Luta</button>
+        </div>
+
+        <div class="reviews-stream-grid">
+          <!-- Depoimento 1 -->
+          <div class="athlete-review-card" data-cat="musculacao">
+            <div class="review-user-row">
+              <div>
+                <div class="review-user-name">Lucas Ferraz</div>
+                <span class="review-sport-tag">Treina Musculação há 5 anos</span>
+              </div>
+              <div class="stars-line">★★★★★</div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+              "Eu já comprei creatina de várias marcas famosas e sempre ficava aquele pozinho arenoso no fundo da
+              garrafa. A VOLT dissolveu na hora na água gelada, sem gosto nenhum. Minha carga de supino subiu de 38kg de
+              cada lado para 44kg em 3 semanas!"
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
+              Verificada • Kit 2 Potes</span>
+          </div>
+
+          <!-- Depoimento 2 -->
+          <div class="athlete-review-card" data-cat="crossfit">
+            <div class="review-user-row">
+              <div>
+                <div class="review-user-name">Mariana Prado</div>
+                <span class="review-sport-tag">Atleta Amadora de Crossfit</span>
+              </div>
+              <div class="stars-line">★★★★★</div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+              "Nos WODs com repetições infinitas de barra e agachamento com peso, eu sempre morria na metade. Com a VOLT
+              meu fôlego muscular dura até o final. Não sinto nenhum enjoo no estômago, super leve."
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
+              Verificada • Assinante</span>
+          </div>
+
+          <!-- Depoimento 3 -->
+          <div class="athlete-review-card" data-cat="corrida">
+            <div class="review-user-row">
+              <div>
+                <div class="review-user-name">Gabriel Santos</div>
+                <span class="review-sport-tag">Jiu-jitsu & Corrida de Rua</span>
+              </div>
+              <div class="stars-line">★★★★★</div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+              "Tinha medo de ficar pesado pra lutar, mas o peso que ganhei foi só músculo rígido. Minha pegada no kimono
+              ficou muito mais forte e não tive mais cãibras nas pernas nos treinos de domingo."
+            </p>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">✓ Compra
+              Verificada • Kit Anual</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ RÁPIDO E DESCOMPLICADO -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header center">
+          <span class="tagline">TIRE SUAS DÚVIDAS</span>
+          <h2>Perguntas Frequentes</h2>
+          <p style="margin: 0 auto;">Tudo o que você precisa saber para começar a tomar hoje mesmo.</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-box">
+            <button class="faq-btn-trigger">
+              <span>Qual o melhor horário para tomar a creatina?</span>
+              <span class="faq-cross-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-inner">
+                <p>O mais importante é tomar <strong>todos os dias</strong>, sem falhar. Mas para absorver mais rápido,
+                  tome após o treino junto com um shake ou após o almoço junto com uma refeição.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn-trigger">
+              <span>Posso misturar com café ou energético?</span>
+              <span class="faq-cross-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-inner">
+                <p>Sim! A cafeína não anula os benefícios de força da creatina. Você pode tomar com água, suco, whey
+                  protein ou no seu café pré-treino.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn-trigger">
+              <span>Mulheres podem tomar sem medo de engrossar a voz?</span>
+              <span class="faq-cross-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-inner">
+                <p>Com certeza! Creatina não tem nada a ver com hormônio masculino ou anabolizante. Ela ajuda mulheres a
+                  tonificarem pernas e glúteos e acelerar a recuperação muscular sem qualquer efeito colateral
+                  virilizante.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn-trigger">
+              <span>O que é esse "200 Mesh" que vocês falam?</span>
+              <span class="faq-cross-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-inner">
+                <p>É o tamanho do pozinho! Quanto maior o número, mais fino é o grão. Creatinas baratas usam malha 80
+                  (parece areia de praia). A VOLT usa malha 200 Mesh, que é ultrafina e dissolve em 5 segundos sem ficar
+                  nada no copo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 0.75rem;">
+            <span class="bolt-icon">⚡</span>
+            VOLT<span class="brand-highlight">CREATINE</span>
+          </div>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem;">
+            A creatina pura e micronizada feita para quem não aceita desculpas na hora de puxar ferro.
+          </p>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-volt);">
+            ● LOTE 2026 COM LAUDO DE PUREZA LIBERADO
+          </span>
+        </div>
+
+        <div>
+          <h4>Links Rápidos</h4>
+          <ul class="footer-links-list">
+            <li><a href="#calculadora">Calculadora de Dose</a></li>
+            <li><a href="#simulador">Simulador de Série</a></li>
+            <li><a href="#solubilidade">Teste de Dissolução</a></li>
+            <li><a href="#beneficios">Benefícios no Músculo</a></li>
+            <li><a href="#planos">Tabela de Preços</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Qualidade & Garantia</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">Garantia de 30 Dias</a></li>
+            <li><a href="#">Laudo Laboratorial HPLC</a></li>
+            <li><a href="#">Certificado Vegano</a></li>
+            <li><a href="#">Rastrear Meu Pedido</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Atendimento</h4>
+          <ul class="footer-links-list">
+            <li><a href="#">WhatsApp Direto do Time</a></li>
+            <li><a href="#">Dúvidas com Nutricionista</a></li>
+            <li><a href="#">Envios & Prazos</a></li>
+            <li><a href="#">Políticas de Troca</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>© 2026 VOLT CREATINE LABS. TODOS OS DIREITOS RESERVADOS.</div>
+        <div>PRODUTO DISPENSADO DE REGISTRO CONFORME RDC 240/2018 (ANVISA).</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DRAWER LATERAL DO CARRINHO (CHECKOUT SIMULADO) -->
+  <div class="cart-backdrop" id="cartBackdrop" aria-hidden="true">
+    <div class="cart-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+      <div class="drawer-top-bar">
+        <h3 id="cartDrawerTitle">SEU PEDIDO ⚡ VOLT</h3>
+        <button class="drawer-close" id="closeCartBtn" aria-label="Fechar Carrinho">✕</button>
+      </div>
+
+      <div class="drawer-shipping-notice">
+        <span>🚚 FRETE GRÁTIS ATIVADO PARA O SEU ENDEREÇO!</span>
+      </div>
+
+      <div class="drawer-items-content" id="cartListContent">
+        <!-- Itens inseridos dinamicamente pelo JS -->
+      </div>
+
+      <div class="drawer-bottom-bar">
+        <div class="drawer-sum-line">
+          <span>Subtotal</span>
+          <span id="cartSubtotalText">R$ 167,00</span>
+        </div>
+        <div class="drawer-sum-line">
+          <span>Frete Expresso</span>
+          <span style="color: var(--accent-volt); font-weight: 700;">GRÁTIS</span>
+        </div>
+        <div class="drawer-sum-line total">
+          <span>Total</span>
+          <span id="cartTotalText" style="color: var(--accent-volt);">R$ 167,00</span>
+        </div>
+
+        <button class="btn btn-volt" id="finishCheckoutBtn" style="width: 100%; padding: 1.1rem; font-size: 0.95rem;">
+          Finalizar Pedido com Desconto ⚡
+        </button>
+
+        <span style="font-family: var(--font-mono); font-size: 0.68rem; text-align: center; color: var(--text-muted);">
+          🔒 COMPRA 100% SEGURA • GARANTIA TOTAL DE RESULTADOS EM 30 DIAS
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST DE FEEDBACK -->
+  <div class="toast-msg" id="toastBox">
+    <span>⚡</span>
+    <span id="toastText">Item adicionado com sucesso!</span>
+  </div>
+
+  <!-- ====================================================================
+       JAVASCRIPT MODULAR & INTERATIVO
+       ==================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 1. INTERAÇÃO DA BATERIA HERO + EFEITO 3D NO CARD DO POTE
+      const initHeroBatteryAndTilt = () => {
+        const btnScoop = document.getElementById('takeScoopHeroBtn');
+        const fill = document.getElementById('heroBatteryFill');
+        const percentText = document.getElementById('batteryPercentText');
+        const statusMsg = document.getElementById('batteryStatusMsg');
+        const maxLoad = document.getElementById('maxLoadBoost');
+        const repsBoost = document.getElementById('repsBoost');
+        const card = document.getElementById('heroInteractiveCard');
+        const bottleImg = document.getElementById('productBottleImg');
+
+        let isBoosted = false;
+
+        // Efeito sutil de inclinação 3D no card
+        if (card) {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `perspective(1000px) rotateY(${x * 0.02}deg) rotateX(${-y * 0.02}deg)`;
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+          });
+        }
+
+        if (btnScoop) {
+          btnScoop.addEventListener('click', () => {
+            isBoosted = !isBoosted;
+
+            if (isBoosted) {
+              fill.style.width = '100%';
+              fill.style.background = 'linear-gradient(90deg, #D4FF00, #00E5FF)';
+              percentText.textContent = '100% (Bateria Cheia!)';
+              percentText.style.color = '#00E5FF';
+              statusMsg.innerHTML = '🔥 <strong>Modo Besta Ativado!</strong> Energia máxima para quebrar seus recordes no treino de hoje!';
+              btnScoop.innerHTML = '✨ SCOOP INGERIDO! CLIQUE PARA RESETAR';
+              btnScoop.style.background = 'var(--accent-cyan)';
+              btnScoop.style.color = '#070809';
+              maxLoad.textContent = '+12 kg';
+              repsBoost.textContent = '+4 reps';
+              if (bottleImg) bottleImg.style.filter = 'brightness(1.15) contrast(1.05)';
+              triggerToast('⚡ Energia Celular no Máximo: +12kg em 1RM liberados!');
+            } else {
+              fill.style.width = '35%';
+              fill.style.background = 'linear-gradient(90deg, #FF5500, #D4FF00)';
+              percentText.textContent = '35% (Sem Creatina)';
+              percentText.style.color = 'var(--accent-volt)';
+              statusMsg.textContent = '⚠️ Seus músculos entram em fadiga precoce na 6ª repetição.';
+              btnScoop.innerHTML = '🥄 CLIQUE AQUI: TOMAR 1 SCOOP DE VOLT';
+              btnScoop.style.background = '';
+              btnScoop.style.color = '';
+              maxLoad.textContent = '+0 kg';
+              repsBoost.textContent = '+0 reps';
+              if (bottleImg) bottleImg.style.filter = '';
+            }
+          });
+        }
+      };
+
+      // 2. INTERATIVIDADE DA SEÇÃO DE DISSOLUÇÃO (SHAKER COM ÁGUA)
+      const initShakerInteraction = () => {
+        const btnTest = document.getElementById('btnTestDissolve');
+        const shakerImg = document.getElementById('shakerImg');
+
+        if (btnTest && shakerImg) {
+          btnTest.addEventListener('click', () => {
+            shakerImg.style.transform = 'scale(1.08) rotate(1deg)';
+            shakerImg.style.filter = 'brightness(1.2) contrast(1.1)';
+            btnTest.innerHTML = '✨ Dissolvendo em Alta Velocidade...';
+
+            setTimeout(() => {
+              shakerImg.style.transform = 'scale(1)';
+              shakerImg.style.filter = '';
+              btnTest.innerHTML = '✓ Dissolução 100% Completa em 4.8s!';
+              triggerToast('🌊 Teste concluído: Zero farelo, líquido 100% translúcido!');
+            }, 1200);
+
+            setTimeout(() => {
+              btnTest.innerHTML = '🌊 Simular Mistura no Copo';
+            }, 3500);
+          });
+        }
+      };
+
+      // 3. CALCULADORA DE DOSE PERSONALIZADA
+      const initCalculator = () => {
+        const slider = document.getElementById('bodyWeightSlider');
+        const display = document.getElementById('bodyWeightDisplay');
+        const btnSteady = document.getElementById('btnGoalSteady');
+        const btnTurbo = document.getElementById('btnGoalTurbo');
+        const resultGrams = document.getElementById('resultDailyGrams');
+        const resultScoops = document.getElementById('resultScoops');
+        const resultDays = document.getElementById('resultSaturationDays');
+        const modeBadge = document.getElementById('modeBadgeText');
+        const adviceBox = document.getElementById('funAdviceText');
+
+        let mode = 'steady';
+
+        const updateCalc = () => {
+          const weight = parseFloat(slider.value) || 75;
+          display.textContent = `${weight} kg`;
+
+          if (mode === 'steady') {
+            const grams = Math.max(3.0, Math.round(weight * 0.07 * 10) / 10);
+            const scoops = Math.round((grams / 3.0) * 10) / 10;
+            resultGrams.textContent = grams.toFixed(1);
+            resultScoops.textContent = scoops.toFixed(1);
+            resultDays.textContent = '21';
+            modeBadge.textContent = 'PROTOCOLO CONSTANTE';
+            modeBadge.style.color = 'var(--accent-volt)';
+            adviceBox.innerHTML = `💪 <strong>Seu plano diário:</strong> Tome ${grams.toFixed(1)}g (${scoops.toFixed(1)} scoops) todos os dias. Em 3 semanas seus músculos estarão totalmente saturados e mais fortes.`;
+          } else {
+            const turboGrams = Math.round(weight * 0.3);
+            const scoops = Math.round((turboGrams / 3.0) * 10) / 10;
+            resultGrams.textContent = turboGrams;
+            resultScoops.textContent = scoops.toFixed(1);
+            resultDays.textContent = '7';
+            modeBadge.textContent = 'SATURAÇÃO TURBO 7 DIAS';
+            modeBadge.style.color = 'var(--accent-cyan)';
+            adviceBox.innerHTML = `⚡ <strong>Modo Saturação:</strong> Divida as ${turboGrams}g em 4 porções ao longo do dia por 7 dias. A partir do 8º dia, reduza para ${(weight * 0.07).toFixed(1)}g por dia.`;
+          }
+        };
+
+        if (slider) slider.addEventListener('input', updateCalc);
+
+        if (btnSteady && btnTurbo) {
+          btnSteady.addEventListener('click', () => {
+            btnSteady.classList.add('active');
+            btnTurbo.classList.remove('active');
+            mode = 'steady';
+            updateCalc();
+          });
+
+          btnTurbo.addEventListener('click', () => {
+            btnTurbo.classList.add('active');
+            btnSteady.classList.remove('active');
+            mode = 'turbo';
+            updateCalc();
+          });
+        }
+
+        updateCalc();
+      };
+
+      // 4. MINI-GAME DO SIMULADOR DE SÉRIE COM FOTO DO ATLETA (PUMP THE REPS)
+      const initGymSimulator = () => {
+        const btnPump = document.getElementById('btnPumpMoreReps');
+        const voltRepsDisplay = document.getElementById('repsVoltDisplay');
+        const simVoltBar = document.getElementById('simVoltBar');
+        const athleteImg = document.getElementById('athleteBannerImg');
+
+        let reps = 10;
+
+        if (btnPump) {
+          btnPump.addEventListener('click', () => {
+            reps += 1;
+            voltRepsDisplay.textContent = `${reps} Reps! 🔥`;
+            btnPump.textContent = `🥊 Puxou mais uma! (${reps} Reps Totais)`;
+
+            // Efeito de pulso de energia na foto do atleta
+            if (athleteImg) {
+              athleteImg.style.filter = 'brightness(1.25) contrast(1.1)';
+              setTimeout(() => { athleteImg.style.filter = ''; }, 300);
+            }
+
+            // Efeito visual na barra
+            simVoltBar.style.width = `${Math.min(100, 40 + (reps - 10) * 12)}%`;
+            triggerToast(`🏋️ Boa! Você completou ${reps} repetições com boa técnica!`);
+
+            if (reps >= 15) {
+              btnPump.textContent = '🏆 Bateu o Recorde Pessoal! Resetar?';
+              reps = 9;
+            }
+          });
+        }
+      };
+
+      // 5. ABAS DE SUPERPODERES
+      const initTabs = () => {
+        const tabBtns = document.querySelectorAll('.tab-trigger-btn');
+        const panes = document.querySelectorAll('.benefit-pane');
+
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-tab-id');
+
+            tabBtns.forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            panes.forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) targetPane.classList.add('active');
+          });
+        });
+      };
+
+      // 6. SELETOR DE PREÇOS (COMPRA ÚNICA VS ASSINATURA)
+      const initPricing = () => {
+        const btnSingle = document.getElementById('btnSingleMode');
+        const btnSub = document.getElementById('btnSubMode');
+        const priceEls = document.querySelectorAll('.price-val');
+        const dailyCost1 = document.getElementById('dailyCost1');
+        const dailyCost2 = document.getElementById('dailyCost2');
+        const dailyCost3 = document.getElementById('dailyCost3');
+
+        const updatePrices = (isSub) => {
+          priceEls.forEach(el => {
+            el.textContent = isSub ? el.getAttribute('data-sub') : el.getAttribute('data-single');
+          });
+
+          if (isSub) {
+            if (dailyCost1) dailyCost1.textContent = 'Apenas R$ 0,82 por dia (-15% OFF)';
+            if (dailyCost2) dailyCost2.textContent = 'Apenas R$ 0,70 por dia (-15% OFF)';
+            if (dailyCost3) dailyCost3.textContent = 'Apenas R$ 0,64 por dia (-15% OFF)';
+          } else {
+            if (dailyCost1) dailyCost1.textContent = 'Apenas R$ 0,97 por dia de treino';
+            if (dailyCost2) dailyCost2.textContent = 'Apenas R$ 0,83 por dia de treino';
+            if (dailyCost3) dailyCost3.textContent = 'Apenas R$ 0,75 por dia de treino';
+          }
+        };
+
+        if (btnSingle && btnSub) {
+          btnSingle.addEventListener('click', () => {
+            btnSingle.classList.add('active');
+            btnSub.classList.remove('active');
+            updatePrices(false);
+          });
+
+          btnSub.addEventListener('click', () => {
+            btnSub.classList.add('active');
+            btnSingle.classList.remove('active');
+            updatePrices(true);
+          });
+        }
+      };
+
+      // 7. FILTRO DE DEPOIMENTOS
+      const initReviewsFilter = () => {
+        const filterBtns = document.querySelectorAll('.filter-chip-btn');
+        const cards = document.querySelectorAll('.athlete-review-card');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            cards.forEach(card => {
+              const cat = card.getAttribute('data-cat');
+              if (filter === 'all' || cat === filter) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+      };
+
+      // 8. FAQ ACCORDION
+      const initFAQ = () => {
+        const triggers = document.querySelectorAll('.faq-btn-trigger');
+
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            const parent = trigger.closest('.faq-box');
+            const isOpen = parent.classList.contains('open');
+
+            document.querySelectorAll('.faq-box').forEach(b => b.classList.remove('open'));
+
+            if (!isOpen) {
+              parent.classList.add('open');
+            }
+          });
+        });
+      };
+
+      // 9. CARRINHO INTERATIVO E TOAST FEEDBACK
+      let cart = [
+        { title: 'Kit 2 Potes VOLT (600g)', price: 167.00, qty: 1 }
+      ];
+
+      const toastBox = document.getElementById('toastBox');
+      const toastText = document.getElementById('toastText');
+
+      window.triggerToast = (message) => {
+        if (!toastBox) return;
+        toastText.textContent = message;
+        toastBox.classList.add('show');
+        setTimeout(() => toastBox.classList.remove('show'), 3000);
+      };
+
+      const initCart = () => {
+        const openCartBtn = document.getElementById('openCartBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartBackdrop = document.getElementById('cartBackdrop');
+        const cartListContent = document.getElementById('cartListContent');
+        const cartCountBadge = document.getElementById('cartCountBadge');
+        const subtotalText = document.getElementById('cartSubtotalText');
+        const totalText = document.getElementById('cartTotalText');
+        const checkoutBtn = document.getElementById('finishCheckoutBtn');
+
+        const renderCart = () => {
+          cartListContent.innerHTML = '';
+
+          if (cart.length === 0) {
+            cartListContent.innerHTML = `
+              <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-family: var(--font-mono);">
+                <p>Seu carrinho está vazio.</p>
+                <a href="#planos" class="btn btn-ghost" style="margin-top: 1rem; font-size: 0.8rem;">Ver Kits Disponíveis</a>
+              </div>
+            `;
+            cartCountBadge.textContent = '0';
+            subtotalText.textContent = 'R$ 0,00';
+            totalText.textContent = 'R$ 0,00';
+            return;
+          }
+
+          let total = 0;
+          let count = 0;
+
+          cart.forEach((item, index) => {
+            total += item.price * item.qty;
+            count += item.qty;
+
+            const row = document.createElement('div');
+            row.className = 'cart-item-row';
+            row.innerHTML = `
+              <div class="cart-item-thumb">
+                <img src="Gemini_Generated_Image_garwtfgarwtfgarw.jpg" alt="${item.title}">
+              </div>
+              <div class="cart-item-info">
+                <h4>${item.title}</h4>
+                <span class="type">Grau 200 Mesh • Pureza 99.9%</span>
+                <span class="price">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
+                <div style="display: flex; gap: 0.5rem; margin-top: 0.4rem; align-items: center; font-family: var(--font-mono); font-size: 0.8rem;">
+                  <button class="dec-qty" data-index="${index}" style="padding: 0 0.4rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 3px;">-</button>
+                  <span>${item.qty}</span>
+                  <button class="inc-qty" data-index="${index}" style="padding: 0 0.4rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 3px;">+</button>
+                </div>
+              </div>
+            `;
+            cartListContent.appendChild(row);
+          });
+
+          cartCountBadge.textContent = count;
+          subtotalText.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+          totalText.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+          cartListContent.querySelectorAll('.inc-qty').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = btn.getAttribute('data-index');
+              cart[idx].qty += 1;
+              renderCart();
+            });
+          });
+
+          cartListContent.querySelectorAll('.dec-qty').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = btn.getAttribute('data-index');
+              cart[idx].qty -= 1;
+              if (cart[idx].qty <= 0) cart.splice(idx, 1);
+              renderCart();
+            });
+          });
+        };
+
+        const openDrawer = () => {
+          cartBackdrop.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        };
+
+        const closeDrawer = () => {
+          cartBackdrop.classList.remove('open');
+          document.body.style.overflow = '';
+        };
+
+        openCartBtn.addEventListener('click', openDrawer);
+        closeCartBtn.addEventListener('click', closeDrawer);
+
+        cartBackdrop.addEventListener('click', (e) => {
+          if (e.target === cartBackdrop) closeDrawer();
+        });
+
+        // Adicionar pacotes
+        document.querySelectorAll('.add-to-cart-trigger').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const title = btn.getAttribute('data-pack-title');
+            const card = btn.closest('.plan-box');
+            const price = parseFloat(card.querySelector('.price-val').textContent);
+
+            const existing = cart.find(x => x.title === title);
+            if (existing) {
+              existing.qty += 1;
+            } else {
+              cart.push({ title, price, qty: 1 });
+            }
+
+            renderCart();
+            openDrawer();
+            triggerToast(`⚡ ${title} adicionado ao seu carrinho!`);
+          });
+        });
+
+        // Finalizar Checkout
+        checkoutBtn.addEventListener('click', () => {
+          if (cart.length === 0) return;
+          checkoutBtn.textContent = 'Processando com Desconto...';
+          checkoutBtn.disabled = true;
+
+          setTimeout(() => {
+            alert('⚡ PEDIDO CONFIRMADO COM SUCESSO!\n\nSeu pedido foi processado com Frete Grátis. Prepare-se para quebrar recordes no seu treino!');
+            cart = [];
+            renderCart();
+            closeDrawer();
+            checkoutBtn.textContent = 'Finalizar Pedido com Desconto ⚡';
+            checkoutBtn.disabled = false;
+          }, 800);
+        });
+
+        renderCart();
+      };
+
+      // Inicia todos os componentes
+      initHeroBatteryAndTilt();
+      initShakerInteraction();
+      initCalculator();
+      initGymSimulator();
+      initTabs();
+      initPricing();
+      initReviewsFilter();
+      initFAQ();
+      initCart();
+    });
+  </script>
+</body>
+
+</html>
