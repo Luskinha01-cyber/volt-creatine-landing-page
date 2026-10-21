@@ -1293,12 +1293,35 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
     }
 
-    .shaker-image-container img {
+    .shaker-image-container img,
+    .shaker-image-container video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      display: block;
       transition: filter 300ms ease, transform 500ms ease;
+    }
+
+    /* ANIMAÇÃO DE ROTAÇÃO DO BOTÃO ("O BOTÃO RODA") */
+    .btn.btn-rotate-click {
+      animation: buttonPulseRotate 0.65s cubic-bezier(0.2, 0.8, 0.3, 1);
+    }
+
+    .btn.is-spinning .btn-spin-icon {
+      display: inline-block !important;
+      animation: spinForever 0.85s linear infinite;
+    }
+
+    @keyframes spinForever {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes buttonPulseRotate {
+      0% { transform: scale(0.96) rotate(0deg); }
+      50% { transform: scale(1.05) rotate(180deg); }
+      100% { transform: scale(1) rotate(360deg); }
     }
 
     .shaker-overlay-badge {
@@ -2533,13 +2556,19 @@
 
         <div class="shaker-interactive-section spotlight-card">
           <div class="shaker-grid">
-            <div class="shaker-image-container" id="shakerCard">
-              <img src="Gemini_Generated_Image_wuatqfwuatqfwuat.jpg"
-                alt="Scoop de creatina despejando pó micronizado dissolvendo instantaneamente em copo com água e cubos de gelo"
-                id="shakerImg">
-              <div class="shaker-overlay-badge">
+            <div class="shaker-image-container spotlight-card fx-tilt" id="shakerCard">
+              <video id="shakerVideo"
+                poster="Gemini_Generated_Image_wuatqfwuatqfwuat.jpg"
+                playsinline
+                muted
+                preload="auto">
+                <source src="video_dispersao.mp4" type="video/mp4">
+                <source src="gemini_generated_video_a6d3ec82.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos MP4.
+              </video>
+              <div class="shaker-overlay-badge" id="shakerBadge">
                 <span style="color: var(--accent-cyan); font-weight: 800;">● TESTE EM ÁGUA GELADA</span>
-                <span>Zero Resíduos</span>
+                <span id="shakerStatusText">Zero Resíduos</span>
               </div>
             </div>
 
@@ -2565,9 +2594,10 @@
                 </div>
               </div>
 
-              <button class="btn btn-ghost" id="btnTestDissolve" style="width: fit-content;">
-                <span>Executar Teste de Dispersão</span>
-                <span class="btn-arrow">→</span>
+              <button class="btn btn-ghost" id="btnTestDissolve" style="width: fit-content;" title="Iniciar teste de dispersão">
+                <span class="btn-spin-icon" id="btnSpinIcon" style="display: none; margin-right: 0.35rem; font-size: 1.05rem;">↻</span>
+                <span id="btnTestText">Executar Teste de Dispersão</span>
+                <span class="btn-arrow" id="btnTestArrow">→</span>
               </button>
             </div>
           </div>
@@ -3268,28 +3298,87 @@
       };
 
       // ════════════════════════════════════════════════════════════════
-      // 7. INTERATIVIDADE DA SEÇÃO DE DISSOLUÇÃO (SHAKER COM ÁGUA)
+      // 7. INTERATIVIDADE DA SEÇÃO DE DISSOLUÇÃO (VÍDEO MP4 + BOTÃO QUE GIRA)
       // ════════════════════════════════════════════════════════════════
       const initShakerInteraction = () => {
         const btnTest = document.getElementById('btnTestDissolve');
-        const shakerImg = document.getElementById('shakerImg');
+        const shakerVideo = document.getElementById('shakerVideo');
+        const shakerCard = document.getElementById('shakerCard');
+        const shakerBadge = document.getElementById('shakerBadge');
+        const btnText = document.getElementById('btnTestText');
+        const btnArrow = document.getElementById('btnTestArrow');
+        const spinIcon = document.getElementById('btnSpinIcon');
 
-        if (btnTest && shakerImg) {
-          btnTest.addEventListener('click', () => {
-            shakerImg.style.transform = 'scale(1.06) rotate(1deg)';
-            shakerImg.style.filter = 'brightness(1.18) contrast(1.08)';
-            btnTest.innerHTML = '<span>Dispersão Ativa em Água Gelada...</span>';
+        if (btnTest && shakerVideo) {
+          let isRunning = false;
 
-            setTimeout(() => {
-              shakerImg.style.transform = 'scale(1)';
-              shakerImg.style.filter = '';
-              btnTest.innerHTML = '<span>Dispersão Concluída em 4.8s</span>';
+          const executeDispersionTest = () => {
+            if (isRunning) return;
+            isRunning = true;
+
+            // Animação de rotação do próprio botão ("o botão roda")
+            btnTest.classList.remove('btn-rotate-click');
+            void btnTest.offsetWidth; // Força reflow para reiniciar animação CSS
+            btnTest.classList.add('btn-rotate-click', 'is-spinning');
+
+            if (spinIcon) spinIcon.style.display = 'inline-block';
+            if (btnArrow) btnArrow.style.display = 'none';
+            if (btnText) btnText.textContent = 'Dispersando em Água Gelada...';
+
+            if (shakerCard) shakerCard.classList.add('is-playing');
+            if (shakerBadge) {
+              shakerBadge.innerHTML = '<span style="color: var(--accent-volt); font-weight: 800;">● DISPERSÃO ATIVA</span><span>Malha 200 Mesh em Ação</span>';
+            }
+
+            // Inicia e roda o vídeo MP4
+            shakerVideo.currentTime = 0;
+            const playPromise = shakerVideo.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                // Autoplay mutado garantido
+                shakerVideo.muted = true;
+                shakerVideo.play();
+              });
+            }
+
+            const completeTest = () => {
+              btnTest.classList.remove('is-spinning');
+              if (spinIcon) spinIcon.style.display = 'none';
+              if (btnArrow) {
+                btnArrow.style.display = 'inline-flex';
+                btnArrow.textContent = '✓';
+                btnArrow.style.color = 'var(--accent-volt)';
+              }
+              if (btnText) btnText.textContent = 'Dispersão Concluída em 4.8s';
+              if (shakerBadge) {
+                shakerBadge.innerHTML = '<span style="color: var(--accent-cyan); font-weight: 800;">● TESTE CONCLUÍDO</span><span>Zero Resíduos no Fundo</span>';
+              }
               triggerToast('Dispersão concluída: Solução 100% translúcida sem resíduos.');
-            }, 1200);
 
-            setTimeout(() => {
-              btnTest.innerHTML = '<span>Executar Teste de Dispersão</span><span class="btn-arrow">→</span>';
-            }, 3500);
+              setTimeout(() => {
+                isRunning = false;
+                if (btnText) btnText.textContent = 'Executar Novo Teste';
+                if (btnArrow) {
+                  btnArrow.textContent = '↻';
+                  btnArrow.style.color = '';
+                }
+                if (shakerCard) shakerCard.classList.remove('is-playing');
+              }, 3200);
+            };
+
+            let testEnded = false;
+            const handleFinish = () => {
+              if (testEnded) return;
+              testEnded = true;
+              completeTest();
+            };
+
+            shakerVideo.onended = handleFinish;
+            setTimeout(handleFinish, 4800);
+          };
+
+          btnTest.addEventListener('click', () => {
+            executeDispersionTest();
           });
         }
       };
