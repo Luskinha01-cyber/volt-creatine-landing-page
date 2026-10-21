@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="voltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9FF66" />
+      <stop offset="100%" stop-color="#D4FF00" />
+    </linearGradient>
+    <filter id="voltGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#090A0C" stroke="#D4FF00" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M36 8L16 34H32L28 56L48 30H32L36 8Z" fill="url(#voltGrad)" filter="url(#voltGlow)" stroke="#D4FF00" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

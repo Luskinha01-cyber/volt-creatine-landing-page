@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="VOLT CREATINE | Dossiê Científico sobre os Efeitos da Creatina Monohidratada Micronizada: Força, hipertrofia, energia celular ATP, cognição cerebral e longevidade.">
-  <meta name="theme-color" content="#090A0C">
-  <title>VOLT CREATINE | Dossiê Científico: Performance, Cognição e Longevidade Celular</title>
+  <title>VOLT CREATINE</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
 
   <!-- Google Fonts: Space Grotesk, Inter e JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -221,6 +222,7 @@
       border-radius: var(--radius-sm);
       transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
       position: relative;
+      overflow: hidden;
     }
 
     .btn .btn-arrow {
@@ -232,16 +234,65 @@
       transform: translateX(4px);
     }
 
+    /* SHIMMER VARREDURA (naocodei.com/free-code) */
     .btn-volt {
       background: var(--accent-volt);
       color: #070809;
       box-shadow: 0 4px 20px var(--accent-volt-glow);
     }
 
+    .btn-volt::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: voltShimmer 4s infinite ease-in-out;
+    }
+
+    @keyframes voltShimmer {
+      0%, 70% {
+        left: -60%;
+      }
+      100% {
+        left: 140%;
+      }
+    }
+
     .btn-volt:hover {
       background: var(--accent-volt-hover);
       transform: translateY(-2px);
       box-shadow: 0 6px 28px rgba(212, 255, 0, 0.45);
+    }
+
+    /* EFEITO ONDA / RIPPLE (naocodei.com/free-code) */
+    .onda-ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: rippleAnim 0.65s linear;
+      background-color: rgba(255, 255, 255, 0.35);
+      pointer-events: none;
+    }
+
+    .btn-volt .onda-ripple {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes rippleAnim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
 
     .btn-ghost {
@@ -386,24 +437,44 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.35rem;
+      justify-content: center;
+      gap: 2.2rem;
       list-style: none;
-      margin-left: 1.25rem;
+      margin: 0 auto;
+      flex: 1;
     }
 
     .nav-links a {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-secondary);
       transition: color var(--transition-fast);
       position: relative;
       white-space: nowrap;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
+      padding: 0.35rem 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-volt);
+      box-shadow: 0 0 8px var(--accent-volt-glow);
+      transition: width 0.28s ease, left 0.28s ease;
+      transform: translateX(-50%);
     }
 
     .nav-links a:hover {
       color: var(--accent-volt);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .nav-actions {
@@ -1976,6 +2047,126 @@
         display: none;
       }
     }
+
+    /* ══════════════════════════════════════════════════════════════
+       MICRO-ANIMAÇÕES & UI/UX REFINAMENTOS (naocodei.com/free-code)
+       ══════════════════════════════════════════════════════════════ */
+    .fx-float {
+      animation: voltFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes voltFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(0.6deg);
+      }
+    }
+
+    .fx-tilt {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+      will-change: transform;
+    }
+
+    /* BADGE INPUT NUMÉRICO VIA TECLADO */
+    .slider-number-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(212, 255, 0, 0.1);
+      border: 1px solid var(--border-volt);
+      border-radius: var(--radius-sm);
+      padding: 0.15rem 0.5rem;
+      gap: 0.25rem;
+      box-shadow: 0 0 12px rgba(212, 255, 0, 0.15);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .slider-number-badge-wrap:focus-within {
+      border-color: var(--accent-volt);
+      box-shadow: 0 0 16px rgba(212, 255, 0, 0.35);
+    }
+
+    .slider-number-input {
+      background: transparent;
+      border: none;
+      color: var(--accent-volt);
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 800;
+      width: 3.5rem;
+      text-align: right;
+      padding: 0;
+      outline: none;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    .slider-number-input::-webkit-outer-spin-button,
+    .slider-number-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .slider-number-unit {
+      color: var(--accent-volt);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    /* MARQUEE CONTÍNUO INFINITO (naocodei.com/free-code) */
+    .fx-marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(212, 255, 0, 0.025);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.9rem 0;
+      display: flex;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .fx-marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      gap: 3rem;
+      animation: marqueeScroll 28s linear infinite;
+      padding-right: 3rem;
+    }
+
+    .fx-marquee-container:hover .fx-marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+
+    .marquee-item span.accent {
+      color: var(--accent-volt);
+    }
+
+    @keyframes marqueeScroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
   </style>
 </head>
 
@@ -2014,11 +2205,8 @@
         <ul class="nav-links">
           <li><a href="#manifesto">A Ciência</a></li>
           <li><a href="#beneficios">Mecanismos</a></li>
-          <li><a href="#calculadora">Calculadora de Dose</a></li>
-          <li><a href="#simulador">Simulador Biomecânico</a></li>
-          <li><a href="#solubilidade">Malha 200 Mesh</a></li>
+          <li><a href="#calculadora">Calculadora</a></li>
           <li><a href="#mitos">Mitos vs Evidências</a></li>
-          <li><a href="#protocolos">Protocolos de Uso</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -2080,10 +2268,10 @@
           </div>
 
           <!-- Coluna Direita: Imagem do Pote 3D com Hotspots + Bateria ATP -->
-          <div class="hero-interactive-card spotlight-card" id="heroInteractiveCard">
+          <div class="hero-interactive-card spotlight-card fx-tilt" id="heroInteractiveCard">
             <div class="hero-product-showcase">
               <img src="Gemini_Generated_Image_garwtfgarwtfgarw.jpg"
-                alt="Pote de Creatina Pura VOLT com faíscas de energia ATP e scoop nivelado" id="productBottleImg">
+                alt="Pote de Creatina Pura VOLT com faíscas de energia ATP e scoop nivelado" id="productBottleImg" class="fx-float">
 
               <div class="image-hotspot hotspot-1" aria-label="Detalhe da Pureza">
                 <span>+</span>
@@ -2144,8 +2332,8 @@
         <div class="manifesto-track">
           <span class="manifesto-tag">[FISIOLOGIA EM MOVIMENTO // ROLAGEM CONTÍNUA]</span>
           <div class="manifesto-text" id="scrollManifesto">
-            <!-- Palavras que serão acesas progressivamente no scroll -->
-            A creatina não é um estimulante temporário nem um composto sintético agressivo. Ela é a moeda biológica fundamental que abastece suas mitocôndrias, protege as sinapses neurais contra o esgotamento mental e permite que suas fibras musculares sustentem contração máxima sem falha precoce. Da performance de atletas de elite à vitalidade celular diária de quem nunca pisou em uma academia, a ciência comprova: saturação celular é potência, lucidez e longevidade contínua.
+            <!-- Frase concisa e impactante alinhada no UI/UX -->
+            A <span class="highlight-volt" style="color: var(--accent-volt); text-shadow: 0 0 20px var(--accent-volt-glow);">moeda biológica</span> que multiplica sua força física e protege sua mente contra o cansaço.
           </div>
 
           <div class="manifesto-footer-metrics">
@@ -2170,6 +2358,28 @@
       </div>
     </section>
 
+    <!-- LETREIRO INFINITO CONTÍNUO (naocodei.com/free-code) -->
+    <div class="fx-marquee-container" aria-hidden="true">
+      <div class="fx-marquee-track">
+        <div class="marquee-item"><span class="accent">⚡</span> 100% CREATINA MONOHIDRATADA PURA</div>
+        <div class="marquee-item"><span class="accent">•</span> MALHA ULTRAFINA 200 MESH</div>
+        <div class="marquee-item"><span class="accent">•</span> RÁPIDA DISSOLUÇÃO EM 4.8s</div>
+        <div class="marquee-item"><span class="accent">•</span> RECARGA IMEDIATA DE ATP CELULAR</div>
+        <div class="marquee-item"><span class="accent">•</span> ZERO AÇÚCAR & LACTOSE</div>
+        <div class="marquee-item"><span class="accent">•</span> COGNIÇÃO E FOCO NEURAL ELEVADO</div>
+        <div class="marquee-item"><span class="accent">⚡</span> RENDIMENTO MUSCULAR MÁXIMO</div>
+      </div>
+      <div class="fx-marquee-track" aria-hidden="true">
+        <div class="marquee-item"><span class="accent">⚡</span> 100% CREATINA MONOHIDRATADA PURA</div>
+        <div class="marquee-item"><span class="accent">•</span> MALHA ULTRAFINA 200 MESH</div>
+        <div class="marquee-item"><span class="accent">•</span> RÁPIDA DISSOLUÇÃO EM 4.8s</div>
+        <div class="marquee-item"><span class="accent">•</span> RECARGA IMEDIATA DE ATP CELULAR</div>
+        <div class="marquee-item"><span class="accent">•</span> ZERO AÇÚCAR & LACTOSE</div>
+        <div class="marquee-item"><span class="accent">•</span> COGNIÇÃO E FOCO NEURAL ELEVADO</div>
+        <div class="marquee-item"><span class="accent">⚡</span> RENDIMENTO MUSCULAR MÁXIMO</div>
+      </div>
+    </div>
+
     <!-- CALCULADORA DE DOSAGEM INTERATIVA -->
     <section id="calculadora" class="section-padding scroll-reveal">
       <div class="container">
@@ -2188,9 +2398,12 @@
               <div class="calc-slider-block">
                 <div class="slider-title-row">
                   <label for="bodyWeightSlider">Peso Corporal Atual</label>
-                  <span class="slider-number-badge" id="bodyWeightDisplay">76 kg</span>
+                  <div class="slider-number-badge-wrap">
+                    <input type="number" id="bodyWeightInput" class="slider-number-input" min="40" max="140" value="76" step="1" aria-label="Digite seu peso corporal em kg">
+                    <span class="slider-number-unit">kg</span>
+                  </div>
                 </div>
-                <input type="range" id="bodyWeightSlider" class="styled-range" min="40" max="140" value="76" step="1">
+                <input type="range" id="bodyWeightSlider" class="styled-range" min="40" max="140" value="76" step="1" aria-label="Ajuste o peso corporal">
                 <div
                   style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem;">
                   <span>40 kg</span>
@@ -2250,8 +2463,8 @@
                 </div>
               </div>
 
-              <a href="#protocolos" class="btn btn-volt" style="width: 100%; padding: 0.85rem;">
-                <span>Acessar Diretrizes de Uso</span>
+              <a href="#beneficios" class="btn btn-volt" style="width: 100%; padding: 0.85rem;">
+                <span>Ver Mecanismos Comprovados</span>
                 <span class="btn-arrow">→</span>
               </a>
             </div>
@@ -2623,161 +2836,7 @@
       </div>
     </section>
 
-    <!-- PROTOCOLOS CIENTÍFICOS DE USO -->
-    <section id="protocolos" class="section-padding scroll-reveal">
-      <div class="container">
-        <div class="section-header center">
-          <span class="tagline">DIRETRIZES DE APLICAÇÃO</span>
-          <h2>Protocolos Clínicos de Uso</h2>
-          <p style="margin: 0 auto;">
-            Selecione seu perfil de rotina para consultar as dosagens e cronogramas recomendados pela literatura.
-          </p>
-        </div>
 
-        <div class="pricing-pill-switch">
-          <div class="pill-container" role="tablist">
-            <button type="button" class="pill-mode-btn active" id="btnSingleMode">
-              Protocolo Treino & Força
-            </button>
-            <button type="button" class="pill-mode-btn" id="btnSubMode">
-              Protocolo Cognição & Longevidade
-            </button>
-          </div>
-          <span class="save-tag">BASEADO EM EVIDÊNCIAS</span>
-        </div>
-
-        <div class="plans-cards-grid">
-          <!-- Protocolo 1 -->
-          <div class="plan-box spotlight-card">
-            <div>
-              <h3 class="plan-box-title" id="protoTitle1">Dose Diária de Manutenção</h3>
-              <span class="plan-box-sub" id="protoSub1">Simples, Constante e Seguro</span>
-              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc1">
-                A estratégia padrão recomendada por nutricionistas esportivos do mundo todo.
-              </p>
-            </div>
-
-            <div class="plan-price-wrap">
-              <span class="price-val" id="protoVal1">3g a 5g</span>
-              <span class="plan-daily-cost" id="dailyCost1">Saturação completa em 21 a 28 dias</span>
-            </div>
-
-            <ul class="plan-perks-list" id="protoList1">
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Ingestão de 1 dose rasa diariamente no mesmo horário</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Ideal após o treino ou junto à refeição principal</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Absorção linear e sem exigência de fase de adaptação</span>
-              </li>
-            </ul>
-
-            <a href="#calculadora" class="btn btn-ghost" style="text-align: center;">
-              <span>Ajustar Para Meu Peso</span>
-              <span class="btn-arrow">→</span>
-            </a>
-          </div>
-
-          <!-- Protocolo 2 -->
-          <div class="plan-box popular spotlight-card">
-            <div class="popular-floating-tag">DIRETRIZ RECOMENDADA PELOS ESTUDOS</div>
-            <div>
-              <h3 class="plan-box-title" id="protoTitle2">Protocolo Individualizado por Peso</h3>
-              <span class="plan-box-sub" id="protoSub2">Fórmula 0.07g por kg Corporal</span>
-              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc2">
-                A dosagem precisa calculada para atingir o limiar biológico máximo de saturação.
-              </p>
-            </div>
-
-            <div class="plan-price-wrap">
-              <span class="price-val" id="protoVal2">0.07g</span>
-              <span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-volt); font-weight: 700;">/ kg</span>
-              <span class="plan-daily-cost" id="dailyCost2">Ex: Indivíduo de 75kg ingere ~5.3g diárias</span>
-            </div>
-
-            <ul class="plan-perks-list" id="protoList2">
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Saturação celular proporcional ao volume de massa magra</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Preserva rendimento mesmo sob restrição calórica</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Acompanhar ingestão hídrica de 35ml a 40ml de água por kg</span>
-              </li>
-            </ul>
-
-            <a href="#calculadora" class="btn btn-volt" style="text-align: center;">
-              <span>Calcular Minha Dose</span>
-              <span class="btn-arrow">→</span>
-            </a>
-          </div>
-
-          <!-- Protocolo 3 -->
-          <div class="plan-box spotlight-card">
-            <div>
-              <h3 class="plan-box-title" id="protoTitle3">Protocolo de Carga Rápida (Opcional)</h3>
-              <span class="plan-box-sub" id="protoSub3">Saturação Express em 7 Dias</span>
-              <p style="font-size: 0.84rem; margin-top: 0.5rem;" id="protoDesc3">
-                Indicado para competições com prazo exíguo que demandam pico muscular em curto prazo.
-              </p>
-            </div>
-
-            <div class="plan-price-wrap">
-              <span class="price-val" id="protoVal3">20g</span>
-              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-volt); font-weight: 700;">/ dia (7 dias)</span>
-              <span class="plan-daily-cost" id="dailyCost3">Após o 7º dia, manutenção com 3g a 5g diárias</span>
-            </div>
-
-            <ul class="plan-perks-list" id="protoList3">
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Fracionar em 4 tomadas de 5g ao longo do dia com alimentos</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Atinge saturação dos tecidos já na primeira semana</span>
-              </li>
-              <li>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Opcional: o protocolo de 21 dias atinge o mesmo pico final</span>
-              </li>
-            </ul>
-
-            <a href="#mitos" class="btn btn-ghost" style="text-align: center;">
-              <span>Consultar Mitos e Evidências</span>
-              <span class="btn-arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- CASOS DE USO E RELATOS DE PRATICANTES -->
     <section class="section-padding scroll-reveal">
@@ -2952,7 +3011,6 @@
             <li><a href="#simulador">Simulador de Força</a></li>
             <li><a href="#solubilidade">Solubilidade 200 Mesh</a></li>
             <li><a href="#mitos">Mitos vs Fatos</a></li>
-            <li><a href="#protocolos">Protocolos de Uso</a></li>
           </ul>
         </div>
 
@@ -2969,9 +3027,9 @@
         <div>
           <h4>Orientações</h4>
           <ul class="footer-links-list">
-            <li><a href="#protocolos">Protocolo Diário</a></li>
+            <li><a href="#calculadora">Guia de Saturação</a></li>
             <li><a href="#calculadora">Dosagem por kg</a></li>
-            <li><a href="#protocolos">Uso por Sedentários</a></li>
+            <li><a href="#mitos">Uso por Sedentários</a></li>
             <li><a href="#mitos">Perguntas Frequentes</a></li>
           </ul>
         </div>
@@ -3237,11 +3295,11 @@
       };
 
       // ════════════════════════════════════════════════════════════════
-      // 8. CALCULADORA DE DOSE INDIVIDUALIZADA
+      // 8. CALCULADORA DE DOSE INDIVIDUALIZADA (COM INPUT DE TECLADO)
       // ════════════════════════════════════════════════════════════════
       const initCalculator = () => {
         const slider = document.getElementById('bodyWeightSlider');
-        const display = document.getElementById('bodyWeightDisplay');
+        const input = document.getElementById('bodyWeightInput');
         const btnSteady = document.getElementById('btnGoalSteady');
         const btnTurbo = document.getElementById('btnGoalTurbo');
         const resultGrams = document.getElementById('resultDailyGrams');
@@ -3252,9 +3310,13 @@
 
         let mode = 'steady';
 
-        const updateCalc = () => {
-          const weight = parseFloat(slider.value) || 76;
-          display.textContent = `${weight} kg`;
+        const updateCalc = (sourceVal) => {
+          let weight = parseFloat(sourceVal !== undefined ? sourceVal : (slider ? slider.value : 76));
+          if (isNaN(weight)) weight = 76;
+          weight = Math.min(140, Math.max(40, weight));
+
+          if (slider && Number(slider.value) !== weight) slider.value = weight;
+          if (input && Number(input.value) !== weight) input.value = weight;
 
           if (mode === 'steady') {
             const grams = Math.max(3.0, Math.round(weight * 0.07 * 10) / 10);
@@ -3277,7 +3339,19 @@
           }
         };
 
-        if (slider) slider.addEventListener('input', updateCalc);
+        if (slider) {
+          slider.addEventListener('input', () => updateCalc(slider.value));
+        }
+
+        if (input) {
+          input.addEventListener('input', () => {
+            const val = parseFloat(input.value);
+            if (!isNaN(val)) updateCalc(val);
+          });
+          input.addEventListener('change', () => {
+            updateCalc(input.value);
+          });
+        }
 
         if (btnSteady && btnTurbo) {
           btnSteady.addEventListener('click', () => {
@@ -3295,7 +3369,7 @@
           });
         }
 
-        updateCalc();
+        updateCalc(76);
       };
 
       // ════════════════════════════════════════════════════════════════
@@ -3359,170 +3433,45 @@
       // ════════════════════════════════════════════════════════════════
       // 11. SELETOR DE PROTOCOLOS (TREINO VS LONGEVIDADE/COGNIÇÃO)
       // ════════════════════════════════════════════════════════════════
-      const initProtocols = () => {
-        const btnAthlete = document.getElementById('btnSingleMode');
-        const btnMind = document.getElementById('btnSubMode');
+      // 11. MICRO-INTERAÇÕES & EFEITOS DINÂMICOS (naocodei.com/free-code)
+      // ════════════════════════════════════════════════════════════════
+      const initMicroInteractions = () => {
+        // Efeito Onda / Ripple nos botões
+        const buttons = document.querySelectorAll('.btn, .interactive-scoop-trigger, .goal-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const title1 = document.getElementById('protoTitle1');
-        const sub1 = document.getElementById('protoSub1');
-        const desc1 = document.getElementById('protoDesc1');
-        const val1 = document.getElementById('protoVal1');
-        const cost1 = document.getElementById('dailyCost1');
-        const list1 = document.getElementById('protoList1');
+            const ripple = document.createElement('span');
+            ripple.classList.add('onda-ripple');
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            const diameter = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${diameter}px`;
+            ripple.style.marginLeft = ripple.style.marginTop = `-${diameter / 2}px`;
 
-        const title2 = document.getElementById('protoTitle2');
-        const sub2 = document.getElementById('protoSub2');
-        const desc2 = document.getElementById('protoDesc2');
-        const val2 = document.getElementById('protoVal2');
-        const cost2 = document.getElementById('dailyCost2');
-        const list2 = document.getElementById('protoList2');
-
-        const title3 = document.getElementById('protoTitle3');
-        const sub3 = document.getElementById('protoSub3');
-        const desc3 = document.getElementById('protoDesc3');
-        const val3 = document.getElementById('protoVal3');
-        const cost3 = document.getElementById('dailyCost3');
-        const list3 = document.getElementById('protoList3');
-
-        const setAthleteProtocols = () => {
-          if (title1) title1.textContent = 'Dose Diária de Manutenção';
-          if (sub1) sub1.textContent = 'Simples, Constante e Seguro';
-          if (desc1) desc1.textContent = 'A estratégia padrão recomendada por nutricionistas esportivos do mundo todo.';
-          if (val1) val1.textContent = '3g a 5g';
-          if (cost1) cost1.textContent = 'Saturação completa em 21 a 28 dias';
-          if (list1) list1.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Ingestão de 1 dose rasa diariamente no mesmo horário</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Ideal após o treino ou junto à refeição principal</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Absorção linear e sem exigência de fase de adaptação</span>
-            </li>
-          `;
-
-          if (title2) title2.textContent = 'Protocolo Individualizado por Peso';
-          if (sub2) sub2.textContent = 'Fórmula 0.07g por kg Corporal';
-          if (desc2) desc2.textContent = 'A dosagem precisa calculada para atingir o limiar biológico máximo de saturação.';
-          if (val2) val2.textContent = '0.07g';
-          if (cost2) cost2.textContent = 'Ex: Indivíduo de 75kg ingere ~5.3g diárias';
-          if (list2) list2.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Saturação celular proporcional ao volume de massa magra</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Preserva rendimento mesmo sob restrição calórica</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Acompanhar ingestão hídrica de 35ml a 40ml de água por kg</span>
-            </li>
-          `;
-
-          if (title3) title3.textContent = 'Protocolo de Carga Rápida (Opcional)';
-          if (sub3) sub3.textContent = 'Saturação Express em 7 Dias';
-          if (desc3) desc3.textContent = 'Indicado para competições com prazo exíguo que demandam pico muscular em curto prazo.';
-          if (val3) val3.textContent = '20g';
-          if (cost3) cost3.textContent = 'Após o 7º dia, manutenção com 3g a 5g diárias';
-          if (list3) list3.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Fracionar em 4 tomadas de 5g ao longo do dia com alimentos</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Atinge saturação dos tecidos já na primeira semana</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Opcional: o protocolo de 21 dias atinge o mesmo pico final</span>
-            </li>
-          `;
-        };
-
-        const setMindAndLongevityProtocols = () => {
-          if (title1) title1.textContent = 'Dose Cognitiva & Foco Mental';
-          if (sub1) sub1.textContent = 'Trabalho Intelectual e Estudos';
-          if (desc1) desc1.textContent = 'Dose constante matinal para abastecer neurônios e combater o cansaço mental.';
-          if (val1) val1.textContent = '3g a 5g';
-          if (cost1) cost1.textContent = 'Melhora da clareza mental e memória em 14 a 21 dias';
-          if (list1) list1.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Ingerir pela manhã com café da manhã ou suco natural</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Auxilia na preservação de ATP cerebral em privação de sono</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Atenua comprovadamente a sensação de névoa mental pós-almoço</span>
-            </li>
-          `;
-
-          if (title2) title2.textContent = 'Protocolo Longevidade & Sarcopenia';
-          if (sub2) sub2.textContent = 'Adultos, Idosos & Prevenção Celular';
-          if (desc2) desc2.textContent = 'Proteção contra perda involuntária de massa magra e suporte à densidade óssea.';
-          if (val2) val2.textContent = '5g';
-          if (cost2) cost2.textContent = 'Uso contínuo e diário recomendado por geriatras';
-          if (list2) list2.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Preserva autonomia funcional e força para tarefas diárias</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Melhora a captação celular de glicose e sensibilidade insulínica</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Sem exigência de pausas ou ciclos periódicos</span>
-            </li>
-          `;
-
-          if (title3) title3.textContent = 'Protocolo Vegetariano & Vegano';
-          if (sub3) sub3.textContent = 'Reposição Nutricional Essencial';
-          if (desc3) desc3.textContent = 'Como a creatina dietética provém de carnes, indivíduos com dietas vegetais obtêm os maiores saltos.';
-          if (val3) val3.textContent = '5g';
-          if (cost3) cost3.textContent = 'Normalização do estoque celular em 3 semanas';
-          if (list3) list3.innerHTML = `
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Fórmula 100% sintetizada e estritamente vegana</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Melhora mensurável em testes de retenção de memória e agilidade</span>
-            </li>
-            <li>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Consumo recomendado com água, suco ou bebida vegetal</span>
-            </li>
-          `;
-        };
-
-        if (btnAthlete && btnMind) {
-          btnAthlete.addEventListener('click', () => {
-            btnAthlete.classList.add('active');
-            btnMind.classList.remove('active');
-            setAthleteProtocols();
-            triggerToast('Protocolos para Treino e Sobrecarga Ativados.');
+            this.appendChild(ripple);
+            setTimeout(() => {
+              ripple.remove();
+            }, 650);
           });
+        });
 
-          btnMind.addEventListener('click', () => {
-            btnMind.classList.add('active');
-            btnAthlete.classList.remove('active');
-            setMindAndLongevityProtocols();
-            triggerToast('Protocolos de Foco Cognitivo e Longevidade Ativados.');
+        // Efeito 3D Tilt suave nos cards com classe .fx-tilt
+        const tiltCards = document.querySelectorAll('.fx-tilt');
+        tiltCards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `perspective(1000px) rotateY(${x * 0.03}deg) rotateX(${-y * 0.03}deg)`;
           });
-        }
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+          });
+        });
       };
 
       // ════════════════════════════════════════════════════════════════
@@ -3590,7 +3539,7 @@
       initCalculator();
       initGymSimulator();
       initTabs();
-      initProtocols();
+      initMicroInteractions();
       initReviewsFilter();
       initFAQ();
     });
